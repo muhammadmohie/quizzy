@@ -9,10 +9,9 @@
     justify-content: space-around;
     align-items: center;
     border: 3px solid black;
-    border-radius: 10%;
+    border-radius: 20px;
     width: 70%;
-    margin-top: 10%;
-    margin-bottom: 10%;
+    margin: 10%;
 }
 .greeting{
     font-size: 100px;
