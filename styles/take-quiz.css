@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+}
+:root {
+    --brand-color: #000;
+    font-family:monospace, Helvetica, sans-serif;
+}
+.container {
+    width: 90%;
+    height: 450px;
+    margin: 5% auto;
+    border: 5px solid var(--brand-color);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+}
+.container-title {
+    color: var(--brand-color);
+    font-size: 40px;
+    text-align: center;
+}
+.premade-quizzes-title {
+    color: var(--brand-color);
+    margin-left: 10%;
+
+}
+.premade-quizzes {
+    display: flex;
+    justify-content: space-evenly;
+}
+.quizzes {
+    font-size: 20px;
+    width: 20%;
+    color: var(--brand-color);
+    background-color: #ffffff;
+    cursor: pointer;
+    border: 3px solid var(--brand-color);
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 20px 30px;
+    display: inline-block;
+    text-align: center;
+}
+
+.quizzes:hover {
+    color: white;
+    background-color: var(--brand-color);
+    box-shadow: 1px 1px 10px #808080;
+}
