@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/create-quiz.css">
+    <title>create quiz</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <p><span class="create">create</span><span class="quiz">quiz</span></p>
+        </div>
+        <form class="form-container">    
+            <div class="row">
+                <p class="question-head">Question</p>
+            </div>
+            <div class="row">
+                <textarea name="question" id="q" cols="30" rows="10" class="question"></textarea>
+            </div>
+            <div class="answer-head row">
+                <p class="answers">answers:</p>
+            </div>
+            <div class="answer-A row">
+                <p class="prefix-A prefix">A</p>
+                <input type="text" class="A answer" placeholder="type the answer" required>
+            </div>
+            <div class="answer-B row">
+                <p class="prefix-B prefix">B</p>
+                <input type="text" class="B answer" placeholder="type the answer" required>
+            </div>
+            <div class="answer-C row">
+                <p class="prefix-C prefix">C</p>
+                <input type="text" class="C answer" placeholder="type the answer" required>
+            </div>
+            <div class="answer-D row">
+                <p class="prefix-D prefix">D</p>
+                <input type="text" class="D answer" placeholder="type the answer" required>
+            </div>
+            <div class="right-answer row">
+                <p class="right">choose the right answer: </p>
+                <select required class="row select">
+                    <option value="A" selected>A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D" selected>D</option>
+                </select>
+            </div>
+            <div class="add">
+                <button type="submit" class="send row">add</button>
+            </div>
+        </form>
+    </div>
+    <footer class="footer">
+        <button type="submit" id="save-quiz">Save Quiz</button>
+        <button type="submit" id="print-quiz">Print Quiz</button>
+    </footer>
+</body>
+</html>
