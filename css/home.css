@@ -1,0 +1,46 @@
+.container{
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+.screen-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 3px solid black;
+    border-radius: 20px;
+    width: 70%;
+    margin: 10%;
+}
+.greeting{
+    font-size: 100px;
+}
+.row2{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    width: 100%;
+    height: 15%;
+    margin-bottom: 10%;
+}
+.taking{
+    width: 30%;
+}
+.creating{
+    width: 30%;
+}
+.creating-button{
+    width: 100%;
+    height: 100%;
+    font-size: 40px;
+    text-transform: capitalize;
+    border-radius: 20px;
+}
+.taking-button{
+    width: 100%;
+    height: 100%;
+    font-size: 40px;
+    text-transform: capitalize;
+    border-radius: 20px;
+}
