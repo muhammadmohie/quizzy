@@ -45,6 +45,7 @@ function createQuestion(title, answers, correctAnswer) {
     return html
 }
 function removeQ(btn){
+    questions.splice(questions.findIndex(x => x.title === String(btn.parentNode.innerText)),1);
     (((btn.parentNode).parentNode).parentNode).remove(btn.parentNode);
 }
 document.querySelector('#print-quiz').onclick = () => {
