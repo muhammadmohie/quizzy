@@ -138,10 +138,6 @@ button {
     justify-content: space-between;
     flex-direction: row;
 } 
-.question-title i{
-    margin-top: 35px;
-
-}
 .question-title i:hover{
     color: red;
     cursor: pointer;
