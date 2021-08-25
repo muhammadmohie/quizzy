@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <div class="main-container">
-            <h1 class="container-title">Which quiz do you want?</h1>
+            <h1 class="main-container-title">Which quiz do you want?</h1>
             <h2 class="premade-quizzes-title">Try these Premade quizzes:</h2>
             <div class="premade-quizzes">
                 <button class="quizzes" href="#" id="html">HTML</button>
@@ -21,8 +21,8 @@
         <div class="confirmation">
             <h2 class="confirm-title">You want to proceed to the quiz?</h2>
             <div class="confirmation-btns">
-                <button class="confirm" id="change">Change the quiz</button>
-                <button class="confirm" id="proceed">continue to the quiz</button>
+                <button class="confirm-btn" id="change">Change the quiz</button>
+                <button class="confirm-btn" id="proceed">continue to the quiz</button>
             </div>
         </div>
         <div class="quiz-container">
@@ -31,28 +31,30 @@
                     Quiz Name
                 </div>
                 <div class="timer">
-                    Time left: <span id="hello">00:00</span>
+                    Time left: <span class="time">00:00</span>
                 </div>
             </div>
-            <div class="question-text">
-                <p class="cc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
-                    adipisci. Quidem error illum asperiores provident adipisci dolores architecto
-                    quis? Perspiciatis.
-                </p>
+            <div class="question-text question">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
+                adipisci. Quidem error illum asperiores provident adipisci dolores architecto
+                quis? Perspiciatis.
             </div>
-                <div class="answers">
-                    <button class="answer A">A. answer1</button>
-                    <button class="answer B">B. answer2</button>
-                    <button class="answer C">C. answer3</button>
-                    <button class="answer D">D. answer4</button>
-                </div>
-                <div class="questions-browsing">
-                    <button class="next">Previous</button>
-                    <button class="prev">Next</button>
-                </div>
+            <div class="answers">
+                <!-- <div class="answer" id="1">A. answer1</div>
+                <div class="answer" id="2">B. answer2</div>
+                <div class="answer" id="3">C. answer3</div>
+                <div class="answer" id="4">D. answer4</div> -->
             </div>
+            <div class="questions-browsing">
+                <button class="browsing-btns previous">Previous</button>
+                <button class="browsing-btns next">Next</button>
+            </div>
+        </div>
+        <div class="result-container">
+            <h1 class="result-title">Quiz result</h1>
+
+        </div>
     </div>
-    <!-- <h1 id="">00:00</h1> -->
     <script src='js/main.js'></script>
 </body>
 </html>
