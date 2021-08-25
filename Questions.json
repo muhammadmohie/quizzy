@@ -1,0 +1,21 @@
+[
+    {
+        "title" : "Html",
+        "questions" : ["why","how","what","where"],
+        "answers" : [1,2,3,4],
+        "correct" : 2
+    
+    },
+    {
+        "title" : "css",
+        "questions" : ["why","how","what","where"],
+        "answers" : [1,2,3,4],
+        "correct" : 2
+    },
+    {
+        "title" : "js",
+        "questions" : ["why","how","what","where"],
+        "answers" : [1,2,3,4],
+        "correct" : 2
+    }
+]
