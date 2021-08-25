@@ -61,7 +61,6 @@ function timer(time_counter) {
   }
 }
 
-
 const question = document.querySelector(".cc");
 
 let proceed = document.getElementById("proceed");
@@ -71,7 +70,8 @@ fetch("./Questions.json")
                .then(data => {
 
                proceed.addEventListener("click",()=>{
+                 
                 question.innerHTML=data[0].questions[0];
-                // console.log();
+     
                })
-               })
+ })

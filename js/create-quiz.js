@@ -29,7 +29,7 @@ form.addEventListener('submit', e => {
 function createQuestion(title, answers, correctAnswer) {
     let html = `<div><li>
         <div class="question"><div class = "question-title">
-            <h2  "class="question-title">${title}</h2><button class ="trash-can" onclick="removeQ(this);" style = "all:unset;"><i class="fas fa-trash"></i></button></div>`
+            <h2  "class="question-title">${title}</h2><button class ="trash-can" onclick="removeQ(this);" style = "all:unset;"><i class="fas fa-trash" data-html2canvas-ignore="true"></i></button></div>`
 
     html += '<ol class="answer-list">'
     for(let answer of answers) {
