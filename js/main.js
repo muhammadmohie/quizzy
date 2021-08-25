@@ -62,16 +62,31 @@ function timer(time_counter) {
 }
 
 const question = document.querySelector(".cc");
-
+const answers = document.querySelector(".answers"); 
 let proceed = document.getElementById("proceed");
 
 fetch("./Questions.json")
                .then(Response=>Response.json())
                .then(data => {
-
+                console.log(data.length);
                proceed.addEventListener("click",()=>{
                  
                 question.innerHTML=data[0].questions[0];
+
+                              
+                for(var i = 0 ; i < answers.childElementCount ; i++){
+                  
+                  //answers.children.item(i).innerHTML = i + 
+                
+                  answers.children.item(i).innerHTML = i + "-    " +  data[0].answers[0][i];
+                      
+
+                }
+            
+
      
                })
  })
+
+ //console.log(answers.children.item(0));
+
