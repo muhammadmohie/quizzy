@@ -70,7 +70,8 @@ fetch("./Questions.json")
                .then(data => {
 
                proceed.addEventListener("click",()=>{
+                 
                 question.innerHTML=data[0].questions[0];
-                // console.log();
+     
                })
-               })
+ })
