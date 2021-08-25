@@ -12,7 +12,11 @@
         <div class="header">
             <p><span class="create">create</span><span class="quiz">quiz</span></p>
         </div>
-        <form class="form-container">    
+        <form class="form-container">
+            <div class="quiz-name">
+                <p class="title">Quiz Name:</p>
+                <input type="text" class="quiz-name" placeholder="type the quiz name" required>
+            </div>    
             <div class="row">
                 <p class="question-head">Question</p>
             </div>
@@ -53,7 +57,7 @@
         </form>
     </div>
     <div class="questions-container">
-        <h1>Questions</h1>
+        <h1>Questions </h1>
         <ol class="questions"></ol>
     </div>
     <footer>
@@ -63,5 +67,6 @@
     </footer>
     <script src="js/create-quiz.js"></script>
     <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/7cd9c8480f.js" crossorigin="anonymous"></script>
 </body>
 </html>

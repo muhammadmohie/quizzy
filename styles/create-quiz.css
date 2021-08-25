@@ -27,6 +27,31 @@
 .quiz{
     color: rgb(3, 134, 241);
 }
+.quiz-name{
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+    margin: auto;
+    width:inherit;
+    padding-bottom: 1%;
+    padding-left: 10px;
+    border: none;
+
+}
+.quiz-name p{
+
+    border: none;
+    display: inline;
+    font-size: 20px;
+}
+.quiz-name input{
+
+    margin: none;
+    border-bottom: 1px solid;
+    padding-right: none;
+    display: inline-block;
+
+}
 .form-container{
     border: 2px solid black;
     border-radius: 20px;
@@ -61,6 +86,7 @@
     height: 100px;
     font-size: 20px;
 }
+
 .answer{
     border: none;
     border-bottom: 1px solid black;
@@ -105,8 +131,21 @@ button {
 
 .questions {
     font-size: 150%;
-}
 
+}
+.question-title{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+} 
+.question-title i{
+    margin-top: 35px;
+
+}
+.question-title i:hover{
+    color: red;
+    cursor: pointer;
+}
 .answer-list {
     list-style: upper-alpha;
 }

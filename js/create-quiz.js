@@ -27,10 +27,10 @@ form.addEventListener('submit', e => {
 })
 
 function createQuestion(title, answers, correctAnswer) {
-    let html = `<li>
-        <div class="question">
-            <h2 class="question-title">${title}</h2>
-    `
+    let html = `<div><li>
+        <div class="question"><div class = "question-title">
+            <h2  "class="question-title">${title}</h2><button class ="trash-can" onclick="removeQ(this);" style = "all:unset;"><i class="fas fa-trash"></i></button></div>`
+
     html += '<ol class="answer-list">'
     for(let answer of answers) {
         if (answer)
@@ -41,10 +41,12 @@ function createQuestion(title, answers, correctAnswer) {
         correct answer: <span class="correct-answer">${String.fromCharCode(65 + correctAnswer)}</span>
         </div>`
     html += '</div>'
-    html += '</li>'
+    html += '</li></div>'
     return html
 }
-
+function removeQ(btn){
+    (((btn.parentNode).parentNode).parentNode).remove(btn.parentNode);
+}
 document.querySelector('#print-quiz').onclick = () => {
     let questions = document.querySelector('.questions')
     html2pdf(questions, {filename: 'questions.pdf'})
