@@ -60,3 +60,17 @@ function timer(time_counter) {
     html.parentNode.parentNode.style.display = "block";
   }
 }
+
+const question = document.querySelector(".cc");
+
+let proceed = document.getElementById("proceed");
+
+fetch("./Questions.json")
+               .then(Response=>Response.json())
+               .then(data => {
+
+               proceed.addEventListener("click",()=>{
+                question.innerHTML=data[0].questions[0];
+                // console.log();
+               })
+               })
