@@ -1,6 +1,12 @@
 *{
     box-sizing: border-box;
 }
+
+:root {
+    --brand-color: #000;
+    font-family:monospace, Helvetica, sans-serif;
+}
+
 .container{
     display: flex;
     flex-direction: column;
@@ -38,7 +44,7 @@
     width: inherit;
     padding-left: 10px;
 }
-.question{
+.question-input{
     border: none;
     border-bottom: 1px solid black;
     width: 100%;
@@ -80,4 +86,27 @@
     width: 30%;
     font-size: 30px;
     padding-left: 12%;
+}
+
+footer, .questions-container {
+    margin-left: 10%;
+    margin-right: 10%;
+    word-break: break-word;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    margin: 5px;
+}
+
+.questions {
+    font-size: 150%;
+}
+
+.answer-list {
+    list-style: upper-alpha;
 }

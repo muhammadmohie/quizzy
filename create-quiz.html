@@ -17,34 +17,34 @@
                 <p class="question-head">Question</p>
             </div>
             <div class="row">
-                <textarea name="question" id="q" cols="30" rows="10" class="question"></textarea>
+                <textarea name="question" autofocus cols="30" rows="5" class="question-title question-input"></textarea>
             </div>
             <div class="answer-head row">
                 <p class="answers">answers:</p>
             </div>
             <div class="answer-A row">
                 <p class="prefix-A prefix">A</p>
-                <input type="text" class="A answer" placeholder="type the answer" required>
+                <input type="text" class="A answer first-answer" placeholder="type the answer" required>
             </div>
             <div class="answer-B row">
                 <p class="prefix-B prefix">B</p>
-                <input type="text" class="B answer" placeholder="type the answer" required>
+                <input type="text" class="B answer second-answer" placeholder="type the answer" required>
             </div>
             <div class="answer-C row">
                 <p class="prefix-C prefix">C</p>
-                <input type="text" class="C answer" placeholder="type the answer" required>
+                <input type="text" class="C answer third-answer" placeholder="type the answer" required>
             </div>
             <div class="answer-D row">
                 <p class="prefix-D prefix">D</p>
-                <input type="text" class="D answer" placeholder="type the answer" required>
+                <input type="text" class="D answer fourth-answer" placeholder="type the answer" required>
             </div>
             <div class="right-answer row">
                 <p class="right">choose the right answer: </p>
-                <select required class="row select">
-                    <option value="A" selected>A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    <option value="D" selected>D</option>
+                <select id="correct-answer" required class="row select">
+                    <option value="0" selected>A</option>
+                    <option value="1">B</option>
+                    <option value="2">C</option>
+                    <option value="3">D</option>
                 </select>
             </div>
             <div class="add">
@@ -52,9 +52,16 @@
             </div>
         </form>
     </div>
-    <footer class="footer">
+    <div class="questions-container">
+        <h1>Questions</h1>
+        <ol class="questions"></ol>
+    </div>
+    <footer>
+        <button type="submit" id="print-quiz">Print Quizz</button>
+        <button type="submit" id="print-answers">Print Answers</button>
         <button type="submit" id="save-quiz">Save Quiz</button>
-        <button type="submit" id="print-quiz">Print Quiz</button>
     </footer>
+    <script src="js/create-quiz.js"></script>
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.min.js"></script>
 </body>
 </html>

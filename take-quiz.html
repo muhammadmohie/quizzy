@@ -9,46 +9,48 @@
 </head>
 <body>
     <div class="container">
-      <div class="header">
-        <h1 class="container-title">Which quiz do you want?</h1>
-        <h2 class="premade-quizzes-title">Try these Premade quizzes:</h2>
-        <div class="premade-quizzes">
-            <button class="quizzes" href="#" id="html">HTML</button>
-            <button class="quizzes" href="#" id = "css">CSS</button>
-            <button class="quizzes" href="#" id = "js">JS</button>
+        <div class="main-container">
+            <h1 class="container-title">Which quiz do you want?</h1>
+            <h2 class="premade-quizzes-title">Try these Premade quizzes:</h2>
+            <div class="premade-quizzes">
+                <button class="quizzes" href="#" id="html">HTML</button>
+                <button class="quizzes" href="#" id = "css">CSS</button>
+                <button class="quizzes" href="#" id = "js">JS</button>
+            </div>
         </div>
-    </div>
-    <div class="question-cont" id="question">
-        <div class="title-timer">
-            <div class="quiz-title">
-                Quiz Name
+        <div class="confirmation">
+            <h2 class="confirm-title">You want to proceed to the quiz?</h2>
+            <div class="confirmation-btns">
+                <button class="confirm" id="change">Change the quiz</button>
+                <button class="confirm" id="proceed">continue to the quiz</button>
             </div>
-            <div class="timer">
-                Time Left: <span id="hello">00:00</span>
+        </div>
+        <div class="quiz-container">
+            <div class="quiz-header">
+                <div class="quiz-title">
+                    Quiz Name
+                </div>
+                <div class="timer">
+                    Time left: <span id="hello">00:00</span>
+                </div>
             </div>
-         </div>
-            <div class="ques-name">
-                    <p>semper libero ante quis elit. Cras gravida 
-                        volutpat libero vitae vulputate. Nam nec malesuada eros. 
-                        In urna ex, euismod nec semper sit amet, venenatis sed lectus.
-                         Suspendisse potenti. Sed semper semper felis, faucibus ullamcorper
-                          quam iaculis dapibus. Phasellus iaculis 
-                        velit ut molestie bibendum. Nulla mattis maximus nisi, et maximus nibh. 
-                    </p>
+            <div class="question-text">
+                <p class="cc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
+                    adipisci. Quidem error illum asperiores provident adipisci dolores architecto
+                    quis? Perspiciatis.
+                </p>
             </div>
-            <div class="answers-cont">
-
+                <div class="answers">
                     <button class="answer A">A. answer1</button>
                     <button class="answer B">B. answer2</button>
                     <button class="answer C">C. answer3</button>
                     <button class="answer D">D. answer4</button>
-
+                </div>
+                <div class="questions-browsing">
+                    <button class="next">Previous</button>
+                    <button class="prev">Next</button>
+                </div>
             </div>
-            <div class="next-prev-Box">
-                <button class="next">Previous</button>
-                <button class="prev">Next</button>
-            </div>
-        </div>
     </div>
     <!-- <h1 id="">00:00</h1> -->
     <script src='js/main.js'></script>
