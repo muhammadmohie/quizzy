@@ -61,3 +61,37 @@ document.querySelector('#print-answers').onclick = () => {
     html += '</ol>'
     html2pdf(html, {filename: 'answers.pdf'})
 }
+
+document.querySelector('#save-quiz').onclick = () => {
+    let quizzName = document.querySelector('#quiz-name').value
+    postData('http://127.0.0.1:3000/quizzes', {
+        name: quizzName,
+        questions: questions
+    })
+    .then(response => {
+        if (response.ok)
+            alert('Quiz saved successfully.')
+        else {
+            alert('Something went wrong.')
+        }
+    })
+}
+
+
+async function postData(url = '', data = {}) {
+    // Default options are marked with *
+    const response = await fetch(url, {
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      mode: 'cors', // no-cors, *cors, same-origin
+      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: 'same-origin', // include, *same-origin, omit
+      headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      redirect: 'follow', // manual, *follow, error
+      referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+      body: JSON.stringify(data) // body data type must match "Content-Type" header
+    });
+    return response;
+  }
