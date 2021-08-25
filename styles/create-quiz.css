@@ -36,13 +36,13 @@
     padding-bottom: 1%;
     padding-left: 10px;
     border: none;
-
+    
 }
 .quiz-name p{
 
     border: none;
     display: inline;
-    font-size: 20px;
+    font-size: 25px;
 }
 .quiz-name input{
 
@@ -50,7 +50,8 @@
     border-bottom: 1px solid;
     padding-right: none;
     display: inline-block;
-
+    height: 100px;
+    font-size: 25px;
 }
 .form-container{
     border: 2px solid black;
