@@ -1,0 +1,15 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "API to store and retreive quizzes.",
+  "main": "api.js",
+  "scripts": {
+    "start": "node api"
+  },
+  "author": "Adham Salama",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}
