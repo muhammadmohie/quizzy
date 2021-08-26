@@ -3,7 +3,7 @@ const confirmation = document.querySelector(".confirmation");
 const quizContainer = document.querySelector(".quiz-container");
 const resultContainer = document.querySelector(".result-container");
 const time = document.querySelector(".time");
-let timeCounter = 11;
+let timeCounter = 61;
 let requiredQuiz;
 let loadedQuiz;
 let score;
@@ -17,22 +17,17 @@ let loadedQuizzes;
 const answer = document.querySelector(".answer");
 (async function fetchQuizzes(){
   try {
-
-
     let response = await fetch(url);
     let json = await response.json();
     loadedQuizzes = json;
-
-
     // Add code here
     let q=0; // the current question
     let c = 0 ; // the current answer
     let results= [];
      score = 0 ;
-    previous.disabled=true;
+    previous.disabled=true;          // disable the previous button in the first question
 
 //======================================================================================
-
 
 mainContainer.addEventListener("click", (event) => {
   if (event.target.tagName === "BUTTON") {
@@ -55,18 +50,12 @@ confirmation.addEventListener("click", (event) => {
   }
 });
 
-
-
-
 function startQuiz(quiz) {
   mainContainer.style.display = "none";
   confirmation.style.display = "none";
   quizContainer.style.display = "block";
   timer(timeCounter);
 }
-
-
-
 
 //============================== Timer function =================================================
 function timer(timeCounter) {
@@ -99,23 +88,16 @@ function timer(timeCounter) {
     console.log(results);
     console.log(score);
   }
-
- 
 }
 
-
 //==============================================================================
-
     proceed.addEventListener("click", () =>
     {
       next.disabled = true;
       for (let i=0; i<loadedQuizzes.length; i++)
         if (requiredQuiz === loadedQuizzes[i].title)
-          loadedQuiz = loadedQuizzes[i];
-      
+          loadedQuiz = loadedQuizzes[i];    
       question.textContent = loadedQuiz.questions[0];
-      
-
       for (let i = 0; i < loadedQuiz.answers[0].length; i++)
       {
         let ansr = document.createElement('div');
@@ -135,7 +117,7 @@ function timer(timeCounter) {
     });
 
     next.addEventListener('click', () => {
-
+      
     next.disabled=true;
     previous.disabled=false;
 
@@ -152,8 +134,6 @@ function timer(timeCounter) {
        
       }
 
-    
-
       answers.innerHTML = '';
       question.textContent = loadedQuiz.questions[++q];
       if(q<=4){
@@ -165,12 +145,16 @@ function timer(timeCounter) {
         ansr.textContent = loadedQuiz.answers[q][i];
         answers.appendChild(ansr);
 
-
         answers.children.item(i).addEventListener("click",()=>{     // save trhe correct answers
+          
             c = i;
             next.disabled=false;
+          
         })
-      }}
+        
+      }
+      
+      }
       results.push(c);
 
       if(q==loadedQuiz.questions.length ){                     // calculat the total socre 
@@ -181,7 +165,6 @@ function timer(timeCounter) {
                 score++;
         }
         console.log(score);
-
       }
 
     });
@@ -216,17 +199,8 @@ function timer(timeCounter) {
        
     });
 
-
   } catch (error) {
     console.log(error);
   }
 
 })();
-
-
-
-
-
-
-
-
