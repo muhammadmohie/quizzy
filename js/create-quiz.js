@@ -29,12 +29,13 @@ form.addEventListener('submit', e => {
 function createQuestion(title, answers, correctAnswer) {
     let html = `<div><li>
         <div class="question"><div class = "question-title">
-            <h2  "class="question-title">${title}</h2><button class ="trash-can" onclick="removeQ(this);" style = "all:unset;"><i class="fas fa-trash" data-html2canvas-ignore="true"></i></button></div>`
+            <h2  "class="question-title" contenteditable="false" onfocusout ="upDArrayT(this)">${title}</h2><div class = "title-buttons"><button class = "answer-edit" onclick="editTitle(this);"><i class="fas fa-edit" data-html2canvas-ignore="true"></i></button><button class ="trash-can" onclick="removeQ(this);"><i class="fas fa-trash" data-html2canvas-ignore="true"></i></button></div></div>`
 
     html += '<ol class="answer-list">'
     for(let answer of answers) {
         if (answer)
-        html += `<li>${answer}</li>`
+        html += `<div class="answer-row-cont"><li contenteditable="false"  onfocusout ="upDArrayA(this)">${answer}</li><button class = "answer-edit" onclick="editA(this)"; ><i class="fas fa-edit" data-html2canvas-ignore="true"></i></button></div>`
+
     }
     html += '</ol>'
     html += `<div class="correct-answer-div" data-html2canvas-ignore="true">
@@ -44,10 +45,34 @@ function createQuestion(title, answers, correctAnswer) {
     html += '</li></div>'
     return html
 }
-function removeQ(btn){
+
+function removeQ(btn){  //Remove a whole question.
     questions.splice(questions.findIndex(x => x.title === String(btn.parentNode.innerText)),1);
     (((btn.parentNode).parentNode).parentNode).remove(btn.parentNode);
 }
+
+let oldT ="";   //temp for the old value to get the index of the changed question.
+function editTitle(btn){    //edit the title in HTML only.
+    oldT = String((btn.parentNode).parentNode.innerText);
+    ((btn.parentNode).parentNode).firstElementChild.setAttribute("contenteditable","true");
+}
+function upDArrayT(field){  //edit the title in Array using outoffoucs attribute.
+    questions[questions.findIndex(x => x.title === oldT)].title = String(field.innerText);
+    field.setAttribute("contenteditable","false")
+}
+function editA(btn){    //edit the answer in HTML only.
+    //console.log(oldT = String((btn.parentNode).firstElementChild.innerText));
+        oldT = String((btn.parentNode).firstElementChild.innerText);
+    (btn.parentNode).firstElementChild.setAttribute("contenteditable","true");
+}
+function upDArrayA(field){  //edit answer in Array using outoffocus attribute.
+    let qIndex = parseInt(questions.findIndex(x => x.title === String(field.closest(".question").firstElementChild.firstElementChild.innerText)));  //question index
+    let aIndex = parseInt(questions[qIndex].answers.findIndex(x => x === oldT));    //answer index
+    questions[qIndex].answers[aIndex] = String(field.innerText);
+    field.setAttribute("contenteditable","false")
+}
+
+
 document.querySelector('#print-quiz').onclick = () => {
     let questions = document.querySelector('.questions')
     html2pdf(questions, {filename: 'questions.pdf'})
