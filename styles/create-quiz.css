@@ -136,13 +136,26 @@ button {
 }
 .question-title{
     display: flex;
-    justify-content: space-between;
     flex-direction: row;
+    justify-content: space-between;
 } 
-.question-title i:hover{
+
+.question button{
+    all: unset;
+}
+.question-title button{
+    margin-top: 35px;
+}
+
+.question i:hover{
     color: red;
     cursor: pointer;
 }
-.answer-list {
-    list-style: upper-alpha;
+
+.answer-list li{
+    list-style: upper-alpha;   
+}
+.answer-list div{
+    display: flex;
+    justify-content: space-between;
 }
