@@ -1,6 +1,6 @@
 [
     {
-        "title" : "Html",
+        "title" : "HTML",
 
         "questions" : [
 
@@ -26,7 +26,7 @@
     
     },
     {
-        "title" : "css",
+        "title" : "CSS",
         "questions" : [
 
             "The property in CSS used to change the background color of an element is -",
@@ -44,7 +44,7 @@
         "correct" : 2
     },
     {
-        "title" : "js",
+        "title" : "JS",
         "questions" : 
         [
             "Which type of JavaScript language is ___",

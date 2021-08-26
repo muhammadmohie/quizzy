@@ -36,13 +36,13 @@
     padding-bottom: 1%;
     padding-left: 10px;
     border: none;
-
+    
 }
 .quiz-name p{
 
     border: none;
     display: inline;
-    font-size: 20px;
+    font-size: 25px;
 }
 .quiz-name input{
 
@@ -50,7 +50,8 @@
     border-bottom: 1px solid;
     padding-right: none;
     display: inline-block;
-
+    height: 100px;
+    font-size: 25px;
 }
 .form-container{
     border: 2px solid black;
@@ -135,13 +136,26 @@ button {
 }
 .question-title{
     display: flex;
-    justify-content: space-between;
     flex-direction: row;
+    justify-content: space-between;
 } 
-.question-title i:hover{
+
+.question button{
+    all: unset;
+}
+.question-title button{
+    margin-top: 35px;
+}
+
+.question i:hover{
     color: red;
     cursor: pointer;
 }
-.answer-list {
-    list-style: upper-alpha;
+
+.answer-list li{
+    list-style: upper-alpha;   
+}
+.answer-list div{
+    display: flex;
+    justify-content: space-between;
 }
