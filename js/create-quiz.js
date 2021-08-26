@@ -47,7 +47,7 @@ function createQuestion(title, answers, correctAnswer) {
 }
 
 function removeQ(btn){  //Remove a whole question.
-    questions.splice(questions.findIndex(x => x.title === String(btn.parentNode.innerText)),1);
+    questions.splice(questions.findIndex(x => x.title === String((btn.parentNode).parentNode.innerText)),1);
     (((btn.parentNode).parentNode).parentNode).remove(btn.parentNode);
 }
 
