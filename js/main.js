@@ -68,11 +68,13 @@ let proceed = document.getElementById("proceed");
 fetch("./Questions.json")
                .then(Response=>Response.json())
                .then(data => {
-                console.log(data.length);
+
+      
+
                proceed.addEventListener("click",()=>{
                  
                 question.innerHTML=data[0].questions[0];
-
+              
                               
                 for(var i = 0 ; i < answers.childElementCount ; i++){
                   
@@ -86,7 +88,5 @@ fetch("./Questions.json")
 
      
                })
+
  })
-
- //console.log(answers.children.item(0));
-
