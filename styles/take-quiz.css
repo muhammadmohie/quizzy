@@ -49,11 +49,14 @@
     width: 25%;
     margin: 0 2%;
 }
+
 .quizzes:hover, .confirm-btn:hover, .browsing-btns:hover {
     color: white;
     background-color: var(--brand-color);
     box-shadow: 1px 1px 10px #808080;
-}
+} 
+
+
 .confirmation-btns {
     display: flex;
     justify-content: center;
@@ -129,4 +132,8 @@
 
 .result-container {
     display: none;
+}
+.disable{
+    background-color: yellow;
+    color: #fff;
 }
