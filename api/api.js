@@ -30,8 +30,7 @@ api.post('/quizzes', (req, res) => {
 api.get('/quizzes/:quiz', (req, res) => {
     let name = req.params.quiz
     let quizzes = getQuizzes()
-    res.json(quizzes.filter(quizz => quizz.name == name).map(quizz => quizz.questions))
-
+    res.json(quizzes.filter(quizz => quizz.name == name)[0])
 })
 
 
