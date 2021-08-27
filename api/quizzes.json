@@ -68,5 +68,40 @@
                 "correct-answer": 2
             }
         ]
+    },
+    {
+        "name": "JavaScript",
+        "questions": [
+            {
+                "title": "Inside which HTML tag do we put the JavaScript?\n\n",
+                "answers": [
+                    "scripting",
+                    "js",
+                    "script",
+                    "javascript"
+                ],
+                "correct-answer": 2
+            },
+            {
+                "title": "JavaScript is ... language.",
+                "answers": [
+                    "compiled",
+                    "interpreted",
+                    "baked",
+                    "forged"
+                ],
+                "correct-answer": 1
+            },
+            {
+                "title": "JavaScript can change",
+                "answers": [
+                    "html",
+                    "css",
+                    "both",
+                    "none"
+                ],
+                "correct-answer": 2
+            }
+        ]
     }
 ]
