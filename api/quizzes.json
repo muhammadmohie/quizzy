@@ -33,5 +33,40 @@
                 "correct-answer": 1
             }
         ]
+    },
+    {
+        "name": "CSS",
+        "questions": [
+            {
+                "title": "What does CSS stand for?",
+                "answers": [
+                    "Computer Style Sheets",
+                    "Creative Style Sheets",
+                    "Colorful Style Sheets",
+                    "Cascading Style Sheets"
+                ],
+                "correct-answer": 3
+            },
+            {
+                "title": "What is the correct HTML tag for referring to an external style sheet?\n\n",
+                "answers": [
+                    "link",
+                    "stylesheet",
+                    "style",
+                    "css"
+                ],
+                "correct-answer": 0
+            },
+            {
+                "title": "Where in an HTML document is the correct place to refer to an external style sheet?\n\n",
+                "answers": [
+                    "body tag",
+                    "end of document",
+                    "head tag",
+                    "script tag"
+                ],
+                "correct-answer": 2
+            }
+        ]
     }
 ]
