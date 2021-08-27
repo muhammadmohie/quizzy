@@ -132,8 +132,10 @@ button {
 
 .questions {
     font-size: 150%;
-
+    border: 2px solid;
+    border-radius:20px ;
 }
+
 .question-title{
     display: flex;
     flex-direction: row;
@@ -147,11 +149,19 @@ button {
     margin-top: 35px;
 }
 
-.question i:hover{
+.trash-can  :hover{
     color: red;
     cursor: pointer;
 }
 
+.answer-edit :hover{
+    color: darkgrey;
+    cursor: pointer;
+}
+.answer-edit :focus{
+    color: darkgrey;
+    background-color: darkgrey;
+}
 .answer-list li{
     list-style: upper-alpha;   
 }
