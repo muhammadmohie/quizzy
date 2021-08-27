@@ -7,7 +7,6 @@
 }
 .container {
     width: 90%;
-    height: 490px;
     margin: 5% auto;
     border: 3px solid var(--brand-color);
     border-radius: 10px;
@@ -20,24 +19,26 @@
 }
 .main-container-title, .result-title {
     color: var(--brand-color);
-    margin-bottom: 6%;
+    margin: 5% 0 6% 0;
     font-size: 40px;
     text-align: center;
 }
 .premade-quizzes-title, .confirm-title {
     color: var(--brand-color);
-    margin-bottom: 5%;
-    margin-left: 10%;
+    margin: 5% 0 5% 10%;
     font-weight: normal;
 }
 .premade-quizzes {
     display: flex;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 6%;
 }
 
 .quizzes, .confirm-btn, .browsing-btns {
     font-size: 20px;
     width: 20%;
+    margin: 2% 5%;
     color: var(--brand-color);
     background-color: #ffffff;
     cursor: pointer;
@@ -60,6 +61,7 @@
 .confirmation-btns {
     display: flex;
     justify-content: center;
+    margin: 10% 0 10% 0;
 }
 .confirmation {
     display: none;
@@ -69,7 +71,7 @@
     display: none;
 }
 .quiz-header {
-    margin-bottom: 2%;
+    margin: 2%;
     display: flex;
     justify-content: space-between;
 }
@@ -91,7 +93,7 @@
     font-weight: bold;
     border: 1px solid #808080;
     border-radius: 5px;
-    margin-bottom: 2%;
+    margin: 2%;
     padding: 20px;
     
 }
@@ -99,7 +101,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr ;
     grid-gap: 15px;
-    margin-bottom: 2%;
+    margin: 2%;
 }
 .answer {
     font-size: 18px;
@@ -118,6 +120,7 @@
 .questions-browsing {
     display: flex;
     justify-content: center;
+    margin: 2% 0;
 }
 .browsing-btns {
     background-color: #fff;
