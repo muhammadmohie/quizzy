@@ -1,0 +1,18 @@
+*{
+    box-sizing: border-box;
+}
+
+:root {
+    --brand-color: #000;
+    font-family:monospace, Helvetica, sans-serif;
+}
+
+.questions-container{
+    margin-left: 5%;
+    margin-right: 5%;
+    word-break: break-word;
+}
+
+.answer-list li{
+    list-style: upper-alpha;   
+}
