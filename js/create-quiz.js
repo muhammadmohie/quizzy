@@ -29,7 +29,7 @@ form.addEventListener('submit', e => {
 function createQuestion(title, answers, correctAnswer) {
     let html = `<div><li>
         <div class="question"><div class = "question-title">
-            <h2  "class="question-title" contenteditable="false" onfocusout ="upDArrayT(this)">${title}</h2><div class = "title-buttons"><button class = "answer-edit" onclick="editTitle(this);"><i class="fas fa-edit" data-html2canvas-ignore="true"></i></button><button class ="trash-can" onclick="removeQ(this);"><i class="fas fa-trash" data-html2canvas-ignore="true"></i></button></div></div>`
+            <h2  "class="question-title" contenteditable="false" onfocusout ="upDArrayT(this)">${title}</h2><div class = "title-buttons"><button class = "answer-edit" onclick="editTitle(this);"><i class=" fas fa-edit" data-html2canvas-ignore="true"></i></button><button class ="trash-can" onclick="removeQ(this);"><i class="fas fa-trash" data-html2canvas-ignore="true"></i></button></div></div>`
 
     html += '<ol class="answer-list">'
     for(let answer of answers) {
@@ -46,30 +46,54 @@ function createQuestion(title, answers, correctAnswer) {
     return html
 }
 
+let oldT ="";
+
 function removeQ(btn){  //Remove a whole question.
-    questions.splice(questions.findIndex(x => x.title === String((btn.parentNode).parentNode.innerText)),1);
-    ((((btn.parentNode).parentNode).parentNode).parentNode).remove(btn.parentNode);
+    questions.splice(questions.findIndex(x => x.title === String(btn.closest(".question").innerText)),1);oldT ="";
+    (btn.closest(".question").parentNode).remove(btn.parentNode);
+    
 }
 
-let oldT ="";   //temp for the old value to get the index of the changed question.
+    //temp for the old value to get the index of the changed question.
 function editTitle(btn){    //edit the title in HTML only.
-    oldT = String((btn.parentNode).parentNode.innerText);
-    ((btn.parentNode).parentNode).firstElementChild.setAttribute("contenteditable","true");
+    if(oldT ===""){ //handle when two edit button are clicked at the same time
+
+        oldT = String((btn.closest(".question-title").innerText));
+        btn.closest(".question-title").firstElementChild.setAttribute("contenteditable","true");
+        btn.closest(".question-title").firstElementChild.setAttribute("style","border:1px solid; border-radius:5px;");
+
+    }
+    else
+    {
+        alert("Please Edit the marked field first before editing another.")
+    }
 }
 function upDArrayT(field){  //edit the title in Array using outoffoucs attribute.
     questions[questions.findIndex(x => x.title === oldT)].title = String(field.innerText);
     field.setAttribute("contenteditable","false")
+    field.setAttribute("style","border:none;")
+    oldT =""; 
 }
 function editA(btn){    //edit the answer in HTML only.
     //console.log(oldT = String((btn.parentNode).firstElementChild.innerText));
-        oldT = String((btn.parentNode).firstElementChild.innerText);
-    (btn.parentNode).firstElementChild.setAttribute("contenteditable","true");
+    if(oldT ===""){ //handle the error when two edit button are clicked at the same time
+
+        oldT = String((btn.parentNode).firstElementChild.innerText);    //get the text of the list item in the same div as the edit button.
+        (btn.parentNode).firstElementChild.setAttribute("contenteditable","true");
+        (btn.parentNode).firstElementChild.setAttribute("style","border:1px solid; border-radius:5px;")
+    }
+    else
+    {
+        alert("Please Edit the marked field first before editing another.")
+    }
 }
 function upDArrayA(field){  //edit answer in Array using outoffocus attribute.
     let qIndex = parseInt(questions.findIndex(x => x.title === String(field.closest(".question").firstElementChild.firstElementChild.innerText)));  //question index
     let aIndex = parseInt(questions[qIndex].answers.findIndex(x => x === oldT));    //answer index
     questions[qIndex].answers[aIndex] = String(field.innerText);
     field.setAttribute("contenteditable","false")
+    field.setAttribute("style","border:none;")
+    oldT =""; 
 }
 
 
