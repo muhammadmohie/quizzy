@@ -117,7 +117,7 @@ const answer = document.querySelector(".answer");
         let ansr = document.createElement('div');
         ansr.classList.add('answer');
         ansr.setAttribute('id', `${i}`);
-        ansr.textContent =arrange[i] +'- '+ loadedQuiz.questions[0].answers[i];
+        ansr.textContent =arrange[i] +'. '+ loadedQuiz.questions[0].answers[i];
         answers.appendChild(ansr);
         
        
@@ -163,7 +163,7 @@ const answer = document.querySelector(".answer");
         let ansr = document.createElement('div');
         ansr.classList.add('answer');
         ansr.setAttribute('id', `${i}`);
-        ansr.textContent =arrange[i] +'- '+ loadedQuiz.questions[q].answers[i];
+        ansr.textContent =arrange[i] +'. '+ loadedQuiz.questions[q].answers[i];
         answers.appendChild(ansr);
        
         answers.children.item(i).addEventListener("click", () => {     // save trhe correct answers 
@@ -203,7 +203,7 @@ const answer = document.querySelector(".answer");
         let ansr = document.createElement('div');
         ansr.classList.add('answer');
         ansr.setAttribute('id', `${i}`);
-        ansr.textContent = loadedQuiz.questions[q].answers[i];
+        ansr.textContent =arrange[i] +'. '+ loadedQuiz.questions[q].answers[i];
         answers.appendChild(ansr);
 
         answers.children.item(i).addEventListener("click", () => {
