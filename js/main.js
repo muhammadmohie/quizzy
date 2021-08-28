@@ -235,48 +235,16 @@ const answer = document.querySelector(".answer");
         answers.appendChild(ansr);
 
         answers.children.item(i).addEventListener("click", () => {
-          c = i;
-          //next.disabled = false;
-          
+          c = i;  
         })
 
       }
       answers.children.item(results.pop()).classList.add('choic');
       results.pop(); // remove the answer from the array
-//console.log(results);
+
     });
   } catch (error) {
     console.log(error);
   }
 
-
 })();
-
-
-
-
-
-        // answers.children.item(0).addEventListener("click",()=>{     
-          
-        //     c =0;
-        //     next.disabled=false;
-          
-        // })
-        // answers.children.item(1).addEventListener("click",()=>{     
-          
-        //     c = 1;
-        //     next.disabled=false;
-          
-        // })
-        // answers.children.item(2).addEventListener("click",()=>{     
-          
-        //     c = 2;
-        //     next.disabled=false;
-          
-        // })
-        // answers.children.item(3).addEventListener("click",()=>{     
-          
-        //     c = 3;
-        //     next.disabled=false;
-          
-        // })
