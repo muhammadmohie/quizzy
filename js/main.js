@@ -97,6 +97,16 @@ const answer = document.querySelector(".answer");
         
        // calculat the sore if the timer finshed ==========================  
       if(time.id != '00'){
+        
+         for (let i = 0; i < loadedQuiz.questions[0].answers.length; i++) {  // =========if the timer is finished after choic and befor click next
+    
+          answers.children.item(i).addEventListener("click", () => {  
+            c = i;
+          })
+        }
+        results.push(c);  
+
+       
         for (let i = 0; i < results.length; i++) {         
           if (results[i] == cor[i])
             score++;
@@ -211,8 +221,9 @@ const answer = document.querySelector(".answer");
         })
 
       }
-      answers.children.item(results.pop()).classList.add('choic');
-      results.pop(); // remove the answer from the array
+     let x = results.pop(); // remove the answer from the array
+      if(x!=-1){                                                        
+          answers.children.item(x).classList.add('choic');}
 
     });
   } catch (error) {
