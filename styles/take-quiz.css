@@ -137,6 +137,6 @@
     display: none;
 }
 .choic{
-    background-color: lightskyblue;
-    color: #fff;
+   border:1px solid lightskyblue;
+   color: #000;
 }
