@@ -35,8 +35,6 @@ const answer = document.querySelector(".answer");
     let cor=[];
     let arrange=["A","B","C","D"];
     score = 0;
-    // previous.disabled = true;          // disable the previous button in the first question
-
     //======================================================================================
 
     mainContainer.addEventListener("click", (event) => {
@@ -50,29 +48,8 @@ const answer = document.querySelector(".answer");
     async function loadRequiredQuiz(){
       let res = await fetch(`http://127.0.0.1:3000/quizzes/${requiredQuiz}`);
       loadedQuiz = await res.json();
-      //     for(let i =0; i< loadedQuiz.questions.length;i++){
-      //   cor.push(loadedQuiz.questions[i].correct-answer)
-      // }
-      // console.log( cor);
-
     }
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
     confirmation.addEventListener("click", (event) => {
       if (event.target.tagName === "BUTTON") {
         if (event.target.id === "change") {
@@ -94,6 +71,7 @@ const answer = document.querySelector(".answer");
       timer(timeCounter);
     }
 
+    
     //============================== Timer function =================================================
     function timer(timeCounter) {
       const countdown = setInterval(() => {
@@ -116,8 +94,10 @@ const answer = document.querySelector(".answer");
         resultContainer.style.display = 'block'
         // Display quiz result
         mainContainer.style.display = "none";
+        
+       // calculat the sore if the timer finshed ==========================  
       if(time.id != '00'){
-        for (let i = 0; i < results.length; i++) {          // calculat the sore if the timer finshed
+        for (let i = 0; i < results.length; i++) {         
           if (results[i] == cor[i])
             score++;
         }
@@ -125,6 +105,8 @@ const answer = document.querySelector(".answer");
         console.log(results);
         console.log(score);
       }
+       //==================================================================== 
+        
     }
   }
     //==============================================================================
@@ -141,14 +123,9 @@ const answer = document.querySelector(".answer");
        
         answers.children.item(i).addEventListener("click", () => {    // save the correct answer
           c = i;
-        
-
           ansr.classList.add("choic");
-         
-    
-          // next.disabled = false;
         })
-        // const ansr = document.querySelector('.ansr');
+       
      
       }
       results.push(c);                                           // push the correct anwser in the array
@@ -156,24 +133,19 @@ const answer = document.querySelector(".answer");
       
 
      
-
+       // push the correct answers of the choic quiz in cor array ========================
       for(let i=0;i<loadedQuiz.questions.length;i++){
 
         cor.push(loadedQuiz.questions[i]["correct-answer"])
 
       }
-  
+      //==================================================================================
     });
   
     next.addEventListener('click', () => {
 
-      // next.disabled = true;
-      // previous.disabled = false;
-
-    
       if (q === loadedQuiz.questions.length - 2) {
         next.textContent = 'Finish attempt';
-       
       }
       if (q === loadedQuiz.questions.length - 1) {
         // show results from here
