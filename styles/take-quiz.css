@@ -164,3 +164,190 @@
     color: var(--tertiary-color);
     border: 2px solid var(--tertiary-color);
 }
+
+
+
+@media (max-width :1024px) {
+ 
+    
+    /*======================================choic quiz===================================*/
+     .main-container{
+       padding: 100px 0 200px;
+   }
+   .main-container-title{
+       font-size: 50px;
+       padding: 50px 0 20px;
+   }
+   .premade-quizzes-title{
+       font-size: 40px;
+       padding: 5px 0 20px;
+   }
+   .premade-quizzes{
+       padding: 0 0 100px;
+       display: block;
+   }
+   .quizzes{
+           font-size: 40px;
+           width: 80%;
+           margin: 30px auto;
+           display: block;
+           padding: 30px 30px;
+       }
+      
+      /*======================================confirmation===================================*/
+       .confirmation-btns{
+           display: block;
+           text-align: center;
+       }
+       .confirm-title{
+           font-size: 40px;
+       }
+       .confirmation{
+           padding: 300px 0 393px;
+       }
+       .confirm-btn{
+           font-size: 35px;
+           width: 80%;
+           margin: 2%;
+       }
+  
+        /*======================================Questions===================================*/
+       .timer{
+           font-size: 24px;
+           width: 30%;
+           padding: 15px;
+       }
+       .quiz-title{
+           font-size: 40px;
+       }
+       .question-text{
+           margin: 6% auto 2%;
+           padding: 35px 20px;
+           font-size: 30px;
+       }
+       .answers {
+           display: block;
+           margin: auto;
+       }
+       .answer{
+           margin: 10% auto;
+           font-size: 28px;
+           padding: 35px 20px;
+       }
+       .browsing-btns{
+           padding: 20px 30px;
+           font-size: 30px;
+           margin: 3% 5%;
+       }
+  
+   }
+   @media (max-width:768px) {
+  
+      
+      /*======================================choic quiz===================================*/
+       .main-container{
+           padding: 90px 0;
+       }
+       .premade-quizzes{
+           padding: 0px;
+       }
+       /*======================================confirmation===================================*/
+       .confirm-title {
+           font-size: 34px;
+           margin: 0;
+       text-align: center;}
+       .confirmation {
+           padding: 300px 0 200px;
+       }
+       .confirmation-btns{
+           text-align: center;
+           margin: 10% auto;
+      
+       }
+       .confirm-btn{
+           font-size: 35px;
+           width: 80%;
+           margin: 2%;
+       }
+        /*======================================Questions===================================*/
+       .browsing-btns{
+           width: 30%;
+       }
+  
+   }
+  
+   @media (max-width:415px) {
+  
+      
+       /*======================================choic quiz===================================*/
+       .main-container{
+           padding: 0 0 48px;
+       }
+       .main-container-title{
+           font-size: 23px;
+           padding: 50px 0 20px;
+       }
+       .premade-quizzes-title{
+           font-size: 18px;
+           padding: 5px 0 20px;
+       }
+       .premade-quizzes{
+           padding: 0 0 75px;
+       }
+       .quizzes{
+           font-size: 30px;
+           width: 80%;
+           margin: 30px auto; 
+           display: block;
+           padding: 19px 30px;
+           }
+            /*======================================confirmation===================================*/
+           .confirm-title {
+               font-size: 18px;
+               margin: 0;
+               text-align: center;
+           }
+  
+           .confirmation {
+                padding: 200px 0 210px;
+   }
+   .confirm-btn{
+       font-size: 25px;
+       width: 80%;
+       margin: 2%;
+   }
+  
+  
+    /*======================================Questions===================================*/
+  
+           .quiz-header{
+               display: block;
+           }
+           .timer{
+               font-size: 14px;
+               width: 55%;
+           }
+           .quiz-title{
+               font-size: 30px;
+               margin: 10% 0;
+           }
+           .question-text{
+               padding: 20px 20px;
+               font-size: 16px;
+           }
+           .answers {
+               display: block;
+               margin: auto;
+           }
+           .answer{
+               font-size: 16px;
+               padding: 20px 20px;
+           }
+           .browsing-btns{
+           
+                padding: 13px 5px;
+                font-size: 14px;
+  
+           }
+   }
+  
