@@ -1,9 +1,13 @@
+
+
+
+
 const mainContainer = document.querySelector(".main-container");
 const confirmation = document.querySelector(".confirmation");
 const quizContainer = document.querySelector(".quiz-container");
 const resultContainer = document.querySelector(".result-container");
 const time = document.querySelector(".time");
-let timeCounter = 16;
+let timeCounter = 1000;
 let elapsedTime=0;
 let requiredQuiz;
 let loadedQuiz;
@@ -103,7 +107,41 @@ const answer = document.querySelector(".answer");
     }
 
     //==============================================================================
-    
+    function addActivClass(){
+      //========================== Active class ================================================================
+      answers.children.item(0).addEventListener("click", () => {    // save the correct answer
+            
+        answers.children.item(1).classList.remove('choice');
+        answers.children.item(2).classList.remove('choice');
+        answers.children.item(3).classList.remove('choice');
+        answers.children.item(0).classList.add('choice');
+       
+      })
+      
+      answers.children.item(1).addEventListener("click", () => {    // save the correct answer
+      
+        answers.children.item(0).classList.remove('choice');
+        answers.children.item(2).classList.remove('choice');
+        answers.children.item(3).classList.remove('choice');
+        answers.children.item(1).classList.add('choice');
+       
+      })
+      answers.children.item(2).addEventListener("click", () => {    // save the correct answer
+      
+        answers.children.item(0).classList.remove('choice');
+        answers.children.item(1).classList.remove('choice');
+        answers.children.item(3).classList.remove('choice');
+        answers.children.item(2).classList.add('choice');
+     
+      })
+      
+      
+      //==========================================================================================
+      
+          }
+
+
+    //===============================================================================
     proceed.addEventListener("click", () => {
       // load the first quetion
       question.textContent = `Q${q + 1}: ${loadedQuiz.questions[0].title}`;
@@ -114,17 +152,26 @@ const answer = document.querySelector(".answer");
         answers.appendChild(ansr);
 
         answers.children.item(i).addEventListener("click", () => {    // save the correct answer
+          // c = i;
+          // answers.children.item(i).classList.add('choice');
+          // results[q] = c;
           c = i;
-          results[q] = c;
           answers.children.item(i).classList.add('choice');
+           results[q] = c;
+           answers.querySelector('.choice').classList.remove('choice');
+           answers.children.item(i).classList.add('choic');
         })
+       
       }
+      addActivClass();
+   
     });
     
     next.addEventListener('click', () => {
-
+     // results[q] = -1;
       if (q === loadedQuiz.questions.length - 2) {
         next.textContent = 'Finish attempt';
+      
       }
       if (q === loadedQuiz.questions.length - 1) {
         // show results from here
@@ -134,6 +181,9 @@ const answer = document.querySelector(".answer");
         displayQuizResult(elapsedTime-1);
         return;
       }
+
+      
+
       answers.innerHTML = '';
       q++;
       if (q <= loadedQuiz.questions.length - 1) {
@@ -151,6 +201,10 @@ const answer = document.querySelector(".answer");
             answers.querySelector('.choice').classList.remove('choice');
             answers.children.item(i).classList.add('choice');
           });
+        }
+        addActivClass();  // adding active class
+        if(results[q]!=undefined){
+          answers.children.item(results[q]).classList.add('choice');
         }
       }
       // c = results[q];
@@ -176,9 +230,15 @@ const answer = document.querySelector(".answer");
         answers.children.item(i).addEventListener("click", () => {
           c = i;
           results[q] = c;
+          answers.querySelector('.choice').classList.remove('choice');
+          answers.children.item(i).classList.add('choice');
         })
       }
+      addActivClass();
+      answers.children.item(results[q]).classList.add('choice');
     });
+
+
 
     function displayQuizResult(timeTaken) {
       let total = loadedQuiz.questions.length;
@@ -285,10 +345,12 @@ const answer = document.querySelector(".answer");
       }
       resultContainer.appendChild(showResult);
     }
+
+
+
+
   } catch (error) {
     console.log(error);
   }
 
 })();
-
-
