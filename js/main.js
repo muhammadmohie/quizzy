@@ -97,16 +97,8 @@ const answer = document.querySelector(".answer");
         
        // calculat the sore if the timer finshed ==========================  
       if(time.id != '00'){
-        
-         for (let i = 0; i < loadedQuiz.questions[0].answers.length; i++) {  // =========if the timer is finished after choic and befor click next
-    
-          answers.children.item(i).addEventListener("click", () => {  
-            c = i;
-          })
-        }
-        results.push(c);  
 
-       
+
         for (let i = 0; i < results.length; i++) {         
           if (results[i] == cor[i])
             score++;
@@ -115,7 +107,7 @@ const answer = document.querySelector(".answer");
         console.log(results);
         console.log(score);
       }
-       //==================================================================== 
+       //===========================================================================
         
     }
   }
@@ -133,16 +125,13 @@ const answer = document.querySelector(".answer");
        
         answers.children.item(i).addEventListener("click", () => {    // save the correct answer
           c = i;
-          ansr.classList.add("choic");
+          answers.children.item(i).classList.add('choic');
         })
        
      
       }
-      results.push(c);                                           // push the correct anwser in the array
-      results.shift();
-      
 
-     
+      
        // push the correct answers of the choic quiz in cor array ========================
       for(let i=0;i<loadedQuiz.questions.length;i++){
 
@@ -150,12 +139,18 @@ const answer = document.querySelector(".answer");
 
       }
       //==================================================================================
+
+
+
+
+
     });
-  
+    var a = 0 ;
     next.addEventListener('click', () => {
 
       if (q === loadedQuiz.questions.length - 2) {
         next.textContent = 'Finish attempt';
+      
       }
       if (q === loadedQuiz.questions.length - 1) {
         // show results from here
@@ -164,6 +159,9 @@ const answer = document.querySelector(".answer");
         time.setAttribute('id', '00');
         //return;
       }
+
+      
+
       answers.innerHTML = '';
       q++;
      
@@ -178,12 +176,19 @@ const answer = document.querySelector(".answer");
        
         answers.children.item(i).addEventListener("click", () => {     // save trhe correct answers 
          c = i;
-         ansr.classList.add("choic");
+         answers.children.item(i).classList.add('choic');
+         answers.querySelector('.choic').classList.remove('choic');
+                answers.children.item(i).classList.add('choic');
         })
 
       }
     }
-    results.push(c);
+    //results.push(c);
+    results[q-1] = c;
+    c = results[q];
+    console.log(results);
+
+
       if (q == loadedQuiz.questions.length) {                     // calculat the total socre 
         console.log(cor);
         console.log(results);
@@ -193,7 +198,7 @@ const answer = document.querySelector(".answer");
         }
         console.log(score);
       }
-      
+      a++;
     });
 
     previous.addEventListener('click', () => {
@@ -208,6 +213,7 @@ const answer = document.querySelector(".answer");
 
       answers.innerHTML = '';
       q--;
+      a--;
       question.textContent =`Q${q+1}: ${loadedQuiz.questions[q].title}`;
       for (let i = 0; i < loadedQuiz.questions[0].answers.length; i++) {
         let ansr = document.createElement('div');
@@ -221,9 +227,11 @@ const answer = document.querySelector(".answer");
         })
 
       }
-     let x = results.pop(); // remove the answer from the array
-      if(x!=-1){                                                        
-          answers.children.item(x).classList.add('choic');}
+      // let x = results.pop(); // remove the answer from the array
+      // if(x!=-1){
+      //     answers.children.item(x).classList.add('choic');}
+
+      //     console.log(results);
 
     });
   } catch (error) {
