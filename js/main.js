@@ -3,16 +3,19 @@ const confirmation = document.querySelector(".confirmation");
 const quizContainer = document.querySelector(".quiz-container");
 const resultContainer = document.querySelector(".result-container");
 const time = document.querySelector(".time");
-let timeCounter = 10;
+let timeCounter = 16;
+let elapsedTime=0;
 let requiredQuiz;
 let loadedQuiz;
 let score;
+let displayed = false;
 const question = document.querySelector(".question");
 const answers = document.querySelector(".answers");
 const previous = document.querySelector(".previous");
 const next = document.querySelector(".next");
 let proceed = document.getElementById("proceed");
 let quizzes;
+
 const answer = document.querySelector(".answer");
 (async function fetchQuizzes() {
   try {
@@ -20,20 +23,19 @@ const answer = document.querySelector(".answer");
     let response = await fetch(url);
     quizzes = await response.json();
 
-    let premadeQuizzes = document.querySelector('.premade-quizzes')
+    const premadeQuizzes = document.querySelector('.premade-quizzes')
     for (let i = 0; i < quizzes.length; i++) {
       let quiz = document.createElement('button');
       quiz.textContent = quizzes[i];
       quiz.classList.add('quizzes');
       premadeQuizzes.appendChild(quiz);
     }
-
     // Add code here
     let q = 0; // the current question
     let c = -1; // the current answer
     let results = [];
-    let cor=[];
-    let arrange=["A","B","C","D"];
+    let cor = [];
+    let arrange = ["A", "B", "C", "D"];
     score = 0;
     //======================================================================================
 
@@ -45,11 +47,16 @@ const answer = document.querySelector(".answer");
         loadRequiredQuiz();
       }
     });
-    async function loadRequiredQuiz(){
-      let res = await fetch(`http://127.0.0.1:3000/quizzes/${requiredQuiz}`);
-      loadedQuiz = await res.json();
+    async function loadRequiredQuiz() {
+      const urlq = `http://127.0.0.1:3000/quizzes/${requiredQuiz}`;
+      let response = await fetch(urlq);
+      loadedQuiz = await response.json();
+      // push the correct answers of the loaded quiz in cor array
+      for (let i = 0; i < loadedQuiz.questions.length; i++) {
+        cor.push(loadedQuiz.questions[i]["correct-answer"])
+      }
     }
-    
+
     confirmation.addEventListener("click", (event) => {
       if (event.target.tagName === "BUTTON") {
         if (event.target.id === "change") {
@@ -66,176 +73,222 @@ const answer = document.querySelector(".answer");
       confirmation.style.display = "none";
       quizContainer.style.display = "block";
       const quizTitle = document.querySelector('.quiz-title');
-      console.log(quizName);
       quizTitle.innerText = `${quizName.toUpperCase()} quiz.`;
-      timer(timeCounter);
+      startTimer(timeCounter);
     }
 
-    
     //============================== Timer function =================================================
-    function timer(timeCounter) {
+    function startTimer(counter) {
       const countdown = setInterval(() => {
-        timeCounter--;
-        printTime(timeCounter);
-        if (timeCounter < 1) {
+        counter--;
+        elapsedTime++;
+        printTime(counter);
+        if (counter < 1) {
           clearInterval(countdown);
-          
-          finshed();
+          timeOut();
         }
       }, 1000);
-
-      function printTime(seconds) {
-        let min = Math.floor(seconds / 60);
-        let sec = Math.floor(seconds % 60);
-        time.textContent = `${min < 10 ? "0" : ""}${min}:${sec < 10 ? "0" : ""}${sec}`;
-      }
-      function finshed() {
-        quizContainer.style.display = "none";
-        resultContainer.style.display = 'block'
-        // Display quiz result
-        mainContainer.style.display = "none";
-        
-       // calculat the sore if the timer finshed ==========================  
-      if(time.id != '00'){
-
-
-        for (let i = 0; i < results.length; i++) {         
-          if (results[i] == cor[i])
-            score++;
-        }
-        console.log(cor);
-        console.log(results);
-        console.log(score);
-      }
-       //===========================================================================
-        
     }
-  }
+    function printTime(seconds) {
+      let min = Math.floor(seconds / 60);
+      let sec = Math.floor(seconds % 60);
+      time.textContent = `${min < 10 ? "0" : ""}${min}:${sec < 10 ? "0" : ""}${sec}`;
+    }
+    function timeOut() {
+      quizContainer.style.display = "none";
+      mainContainer.style.display = "none";
+      resultContainer.style.display = 'block'
+      if (!displayed)
+        displayQuizResult(elapsedTime-1);
+    }
+
     //==============================================================================
+    
     proceed.addEventListener("click", () => {
-      // next.disabled = true;
-      question.textContent = `Q${q+1}: ${loadedQuiz.questions[0].title}`;
+      // load the first quetion
+      question.textContent = `Q${q + 1}: ${loadedQuiz.questions[0].title}`;
       for (let i = 0; i < loadedQuiz.questions[0].answers.length; i++) {
         let ansr = document.createElement('div');
         ansr.classList.add('answer');
-        ansr.setAttribute('id', `${i}`);
-        ansr.textContent =arrange[i] +'. '+ loadedQuiz.questions[0].answers[i];
+        ansr.textContent = arrange[i] + '. ' + loadedQuiz.questions[0].answers[i];
         answers.appendChild(ansr);
-        
-       
+
         answers.children.item(i).addEventListener("click", () => {    // save the correct answer
           c = i;
-          answers.children.item(i).classList.add('choic');
+          results[q] = c;
+          answers.children.item(i).classList.add('choice');
         })
-       
-     
       }
-
-      
-       // push the correct answers of the choic quiz in cor array ========================
-      for(let i=0;i<loadedQuiz.questions.length;i++){
-
-        cor.push(loadedQuiz.questions[i]["correct-answer"])
-
-      }
-      //==================================================================================
-
-
-
-
-
     });
-    var a = 0 ;
+    
     next.addEventListener('click', () => {
 
       if (q === loadedQuiz.questions.length - 2) {
         next.textContent = 'Finish attempt';
-      
       }
       if (q === loadedQuiz.questions.length - 1) {
         // show results from here
         quizContainer.style.display = "none";
         resultContainer.style.display = 'block';
-        time.setAttribute('id', '00');
-        //return;
+        displayed = true;
+        displayQuizResult(elapsedTime-1);
+        return;
       }
-
-      
-
       answers.innerHTML = '';
       q++;
-     
-     if(q<=loadedQuiz.questions.length-1){
-        question.textContent = `Q${q+1}: ${loadedQuiz.questions[q].title}`; 
-      for (let i = 0; i < loadedQuiz.questions[0].answers.length; i++) {
-        let ansr = document.createElement('div');
-        ansr.classList.add('answer');
-        ansr.setAttribute('id', `${i}`);
-        ansr.textContent =arrange[i] +'. '+ loadedQuiz.questions[q].answers[i];
-        answers.appendChild(ansr);
-       
-        answers.children.item(i).addEventListener("click", () => {     // save trhe correct answers 
-         c = i;
-         answers.children.item(i).classList.add('choic');
-         answers.querySelector('.choic').classList.remove('choic');
-                answers.children.item(i).classList.add('choic');
-        })
+      if (q <= loadedQuiz.questions.length - 1) {
+        question.textContent = `Q${q + 1}: ${loadedQuiz.questions[q].title}`;
+        for (let i = 0; i < loadedQuiz.questions[0].answers.length; i++) {
+          let ansr = document.createElement('div');
+          ansr.classList.add('answer');
+          ansr.textContent = arrange[i] + '. ' + loadedQuiz.questions[q].answers[i];
+          answers.appendChild(ansr);
 
-      }
-    }
-    //results.push(c);
-    results[q-1] = c;
-    c = results[q];
-    console.log(results);
-
-
-      if (q == loadedQuiz.questions.length) {                     // calculat the total socre 
-        console.log(cor);
-        console.log(results);
-        for (let i = 0; i < results.length; i++) {
-          if (results[i] == cor[i])
-            score++;
+          answers.children.item(i).addEventListener("click", () => {     // save trhe correct answers 
+            c = i;
+            results[q] = c;
+            answers.children.item(i).classList.add('choice');
+            answers.querySelector('.choice').classList.remove('choice');
+            answers.children.item(i).classList.add('choice');
+          });
         }
-        console.log(score);
       }
-      a++;
+      // c = results[q];
     });
 
     previous.addEventListener('click', () => {
 
       if (q < loadedQuiz.questions.length)    // change the name of the button
       {
-        next.textContent = 'Next'
+        next.textContent = 'Next';
       }
-
       if (q === 0)
         return;
-
       answers.innerHTML = '';
       q--;
-      a--;
-      question.textContent =`Q${q+1}: ${loadedQuiz.questions[q].title}`;
+      question.textContent = `Q${q + 1}: ${loadedQuiz.questions[q].title}`;
       for (let i = 0; i < loadedQuiz.questions[0].answers.length; i++) {
         let ansr = document.createElement('div');
         ansr.classList.add('answer');
-        ansr.setAttribute('id', `${i}`);
-        ansr.textContent =arrange[i] +'. '+ loadedQuiz.questions[q].answers[i];
+        ansr.textContent = arrange[i] + '. ' + loadedQuiz.questions[q].answers[i];
         answers.appendChild(ansr);
 
         answers.children.item(i).addEventListener("click", () => {
-          c = i;  
+          c = i;
+          results[q] = c;
         })
-
       }
-      // let x = results.pop(); // remove the answer from the array
-      // if(x!=-1){
-      //     answers.children.item(x).classList.add('choic');}
-
-      //     console.log(results);
-
     });
+
+    function displayQuizResult(timeTaken) {
+      let total = loadedQuiz.questions.length;
+      let answered=0;
+      let unanswered;
+      let correctAnswers=0;
+      let wrongAnswers;
+
+      if (timeTaken<=0)
+        timeTaken=1;
+
+      for (let i = 0; i < results.length; i++) {
+        if (results[i] == cor[i]) {
+          answered++;
+          correctAnswers++;
+        }
+        else
+          answered++;
+      }
+      unanswered = total-answered;
+      wrongAnswers = answered - correctAnswers;
+      let percentage = (correctAnswers/total)*100;
+      percentage = percentage.toFixed(2);
+
+      let status = (percentage>=70) ? 'Passed' : 'Failed';
+
+      const resultTitle = document.createElement('h1');
+      resultTitle.textContent = `Your ${requiredQuiz} quiz result.`
+      resultTitle.classList.add('result-title');
+      resultContainer.appendChild(resultTitle);
+
+      const gradeReport = document.createElement('div');
+      gradeReport.classList.add('grade-report');
+
+      const rowItem1 = document.createElement('p');
+      rowItem1.innerText = `Your status: ${status}`;
+      rowItem1.classList.add('grade-report-item');
+      const rowItem2 = document.createElement('p');
+      rowItem2.innerText = `Passing grade: 70%.`;
+      rowItem2.classList.add('grade-report-item');
+
+      const rowItem3 = document.createElement('p');
+      rowItem3.innerText = `Quiz questions: ${total}.`;
+      rowItem3.classList.add('grade-report-item');
+      const rowItem4 = document.createElement('p');
+      rowItem4.innerText = `Answered question: ${answered}.`;
+      rowItem4.classList.add('grade-report-item');
+
+      const rowItem5 = document.createElement('p');
+      rowItem5.innerText = `Correct answers: ${correctAnswers}.`;
+      rowItem5.classList.add('grade-report-item');
+      const rowItem6 = document.createElement('p');
+      rowItem6.innerText = `Wrong answers: ${wrongAnswers}.`;
+      rowItem6.classList.add('grade-report-item');
+
+      const rowItem7 = document.createElement('p');
+      rowItem7.innerText = `Unanswered: ${unanswered}.`;
+      rowItem7.classList.add('grade-report-item');
+      const rowItem8 = document.createElement('p');
+      rowItem8.innerText = `Your score is: ${correctAnswers} points`;
+      rowItem8.classList.add('grade-report-item');
+
+      const rowItem9 = document.createElement('p');
+      rowItem9.innerText = `Percentage form: ${percentage}%.`;
+      rowItem9.classList.add('grade-report-item');
+      const rowItem10 = document.createElement('p');
+      rowItem10.innerText = `Taken time: ${timeTaken} s.`;
+      rowItem10.classList.add('grade-report-item');
+
+      gradeReport.appendChild(rowItem1);
+      gradeReport.appendChild(rowItem2);
+      gradeReport.appendChild(rowItem3);
+      gradeReport.appendChild(rowItem4);
+      gradeReport.appendChild(rowItem5);
+      gradeReport.appendChild(rowItem6);
+      gradeReport.appendChild(rowItem7);
+      gradeReport.appendChild(rowItem8);
+      gradeReport.appendChild(rowItem9);
+      gradeReport.appendChild(rowItem10);
+
+      resultContainer.appendChild(gradeReport);
+
+      const showResult = document.createElement('div');
+      for (let i=0; i < loadedQuiz.questions.length; i++) {
+        const question = document.createElement('div');
+        question.classList.add('question-text');
+        question.textContent = `Q${i + 1}: ${loadedQuiz.questions[i].title}`;
+        const answers = document.createElement('div');
+        answers.classList.add('answers');
+        for (let j = 0; j < loadedQuiz.questions[i].answers.length; j++) {
+          let ansr = document.createElement('div');
+          ansr.classList.add('answer');
+          ansr.textContent = arrange[j] + '. ' + loadedQuiz.questions[i].answers[j];
+          if (results[i] == undefined)
+            question.classList.add('left-question');
+          if (results[i] === j)
+            ansr.classList.add('wrong-answer');
+          if (loadedQuiz.questions[i]["correct-answer"] === j)
+            ansr.classList.add('correct-answer');
+          answers.appendChild(ansr);
+        }
+        showResult.appendChild(question);
+        showResult.appendChild(answers);
+      }
+      resultContainer.appendChild(showResult);
+    }
   } catch (error) {
     console.log(error);
   }
 
 })();
+
+

@@ -4,29 +4,33 @@
     margin: 0;
 }
 :root {
-    --brand-color: #000;
-    font-family:monospace, Helvetica, sans-serif;
+    --primary-color: #4e148c;
+    --secondary-color: #ff6d00;
+    --tertiary-color: #18ccae;
+    --blue-color: #3877ff;
+    --red-color: #d00000;
+    font-family: monospace, Helvetica, sans-serif;
 }
 .container {
     width: 90%;
     margin: 5% auto;
-    border: 3px solid var(--brand-color);
+    border: 3px solid var(--primary-color);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content:space-evenly;
 }
 .main-container, .quiz-container, .confirmation, .result-container {
-    margin: 2% 0;
+    margin: 3%;
 }
 .main-container-title, .result-title {
-    color: var(--brand-color);
+    color: var(--primary-color);
     margin: 5% 0 6% 0;
     font-size: 40px;
     text-align: center;
 }
 .premade-quizzes-title, .confirm-title {
-    color: var(--brand-color);
+    color: var(--primary-color);
     margin: 5% 0 5% 10%;
     font-weight: normal;
 }
@@ -41,10 +45,10 @@
     font-size: 20px;
     width: 20%;
     margin: 2% 5%;
-    color: var(--brand-color);
+    color: var(--primary-color);
     background-color: #ffffff;
     cursor: pointer;
-    border: 2px solid var(--brand-color);
+    border: 2px solid var(--primary-color);
     border-radius: 5px;
     padding: 20px 30px;
 }
@@ -55,10 +59,9 @@
 
 .quizzes:hover, .confirm-btn:hover, .browsing-btns:hover {
     color: white;
-    background-color: var(--brand-color);
+    background-color: var(--primary-color);
     box-shadow: 1px 1px 10px #808080;
 } 
-
 
 .confirmation-btns {
     display: flex;
@@ -69,7 +72,6 @@
     display: none;
 }
 .quiz-container {
-    margin: 3%;
     display: none;
 }
 .quiz-header {
@@ -77,7 +79,7 @@
     display: flex;
     justify-content: space-between;
 }
-.quiz-title{
+.quiz-title {
     font-weight: bold;
     font-size: 24px;
 }
@@ -95,7 +97,7 @@
     font-weight: bold;
     border: 1px solid #808080;
     border-radius: 5px;
-    margin: 2%;
+    margin: 5% 2% 2% 2%;
     padding: 20px;
     
 }
@@ -126,8 +128,8 @@
 }
 .browsing-btns {
     background-color: #fff;
-    color: var(--brand-color);
-    border: 2px solid var(--brand-color);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
     cursor: pointer;
     border-radius: 5px;
     width: 20%;
@@ -138,7 +140,27 @@
 .result-container {
     display: none;
 }
-.choic{
-   border:1px solid lightskyblue;
-   color: #000;
+.choice {
+    border: 2px solid lightskyblue;
+}
+
+.grade-report {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 2%;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 2em;
+}
+.grade-report-item {
+    width: 47%;
+}
+.wrong-answer, .left-question {
+    color: var(--red-color);
+    border: 2px solid var(--red-color);
+}
+.correct-answer {
+    color: var(--tertiary-color);
+    border: 2px solid var(--tertiary-color);
 }
