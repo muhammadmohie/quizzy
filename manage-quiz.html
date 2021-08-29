@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/take-quiz.css">
     <link rel="stylesheet" href="styles/manage-quiz.css">
-    <title>Edit Quizzes</title>
+    <title>Manage Quizzes</title>
 </head>
 
 <body>
@@ -17,13 +17,20 @@
             <div class="premade-quizzes"></div>
         </div>
     </div>
-    <div class="questions-container">
+    <div class="container hide">
         <h1>Questions </h1>
         <ol class="questions"></ol>
     </div>
+    <footer class="hide">
+        <button type="submit" id="print-quiz">Print Quizz</button>
+        <button type="submit" id="print-answers">Print Answers</button>
+        <button type="submit" id="save-quiz">Save Quiz</button>
+    </footer>
     <script src="js/manage-quiz.js"></script>
     <script src="js/editAndRemoveQuestion.js"></script>
     <script src="js/createQuestions.js"></script>
+    <script src="js/postData.js"></script>
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/7cd9c8480f.js" crossorigin="anonymous"></script>
 </body>
 
