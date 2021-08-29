@@ -26,26 +26,6 @@ form.addEventListener('submit', e => {
     console.log(questions)
 })
 
-function createQuestion(title, answers, correctAnswer) {
-    let html = `<div><li>
-        <div class="question"><div class = "question-title">
-            <h2  "class="question-title" contenteditable="false" onfocusout ="upDArrayT(this)">${title}</h2><div class = "title-buttons"><button class = "answer-edit" onclick="editTitle(this);"><i class=" fas fa-edit" data-html2canvas-ignore="true"></i></button><button class ="trash-can" onclick="removeQ(this);"><i class="fas fa-trash" data-html2canvas-ignore="true"></i></button></div></div>`
-
-    html += '<ol class="answer-list">'
-    for(let answer of answers) {
-        if (answer)
-        html += `<div class="answer-row-cont"><li contenteditable="false"  onfocusout ="upDArrayA(this)">${answer}</li><button class = "answer-edit" onclick="editA(this)"; ><i class="fas fa-edit" data-html2canvas-ignore="true"></i></button></div>`
-
-    }
-    html += '</ol>'
-    html += `<div class="correct-answer-div" data-html2canvas-ignore="true">
-        correct answer: <span class="correct-answer">${String.fromCharCode(65 + correctAnswer)}</span>
-        </div>`
-    html += '</div>'
-    html += '</li></div>'
-    return html
-}
-
 
 document.querySelector('#print-quiz').onclick = () => {
     let questions = document.querySelector('.questions')
@@ -77,20 +57,3 @@ document.querySelector('#save-quiz').onclick = () => {
     })
 }
 
-async function postData(url = '', data = {}) {
-    // Default options are marked with *
-    const response = await fetch(url, {
-      method: 'POST', // *GET, POST, PUT, DELETE, etc.
-      mode: 'cors', // no-cors, *cors, same-origin
-      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: 'same-origin', // include, *same-origin, omit
-      headers: {
-        'Content-Type': 'application/json'
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      redirect: 'follow', // manual, *follow, error
-      referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-      body: JSON.stringify(data) // body data type must match "Content-Type" header
-    });
-    return response;
-  }
