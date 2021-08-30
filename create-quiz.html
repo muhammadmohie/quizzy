@@ -10,40 +10,40 @@
 <body>
     <div class="container">
         <div class="header">
-            <p><span class="create">create</span><span class="quiz">quiz</span></p>
+            <h1><span class="create">create </span><span class="quiz">quiz</span></h1>
         </div>
         <form class="form-container">
             <div class="quiz-name">
                 <p class="title">Quiz Name:</p>
-                <input type="text" id="quiz-name" class="quiz-name" placeholder="type the quiz name" required>
+                <input type="text" id="quiz-name" autofocus class="quiz-name" placeholder="type the quiz name" required>
             </div>    
-            <div class="row">
-                <p class="question-head">Question</p>
+            <div class="row-name">
+                <p class="question-head">Question:</p>
             </div>
-            <div class="row">
-                <textarea name="question" autofocus cols="30" rows="5" class="question-title question-input"></textarea>
+            <div class="question-cont">
+                <textarea name="question"  cols="30" rows="5" class="question-title question-input"></textarea>
             </div>
-            <div class="answer-head row">
-                <p class="answers">answers:</p>
+            <div class="row-name">
+                <p class="answers">Choices:</p>
             </div>
             <div class="answer-A row">
-                <p class="prefix-A prefix">A</p>
-                <input type="text" class="A answer first-answer" placeholder="type the answer" required>
+                <div class="prefix-A prefix">A</div>
+                <input type="text" class="A answer first-answer" placeholder="Choice A" required>
             </div>
             <div class="answer-B row">
-                <p class="prefix-B prefix">B</p>
-                <input type="text" class="B answer second-answer" placeholder="type the answer" required>
+                <div class="prefix-B prefix">B</div>
+                <input type="text" class="B answer second-answer" placeholder="Choice B" required>
             </div>
             <div class="answer-C row">
-                <p class="prefix-C prefix">C</p>
-                <input type="text" class="C answer third-answer" placeholder="type the answer" required>
+                <div class="prefix-C prefix">C</div>
+                <input type="text" class="C answer third-answer" placeholder="Choice C" required>
             </div>
             <div class="answer-D row">
-                <p class="prefix-D prefix">D</p>
-                <input type="text" class="D answer fourth-answer" placeholder="type the answer" required>
+                <div class="prefix-D prefix">D</div>
+                <input type="text" class="D answer fourth-answer" placeholder="Choice D" required>
             </div>
-            <div class="right-answer row">
-                <p class="right">choose the right answer: </p>
+            <div class="right-answer">
+                <p class="right">choose right answer: </p>
                 <select id="correct-answer" required class="row select">
                     <option value="0" selected>A</option>
                     <option value="1">B</option>
@@ -52,7 +52,7 @@
                 </select>
             </div>
             <div class="add">
-                <button type="submit" class="send row">add</button>
+                <button type="submit" class="send">+ Add</button>
             </div>
         </form>
     </div>

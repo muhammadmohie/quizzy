@@ -14,12 +14,14 @@
 }
 .question-head{
     font-size: 30px;
+    margin: 20px 0px;
+    padding: 0;
 }
 .header{
-    font-size: 80px;
-    align-self: flex-start;
-    padding-left: 50px;
-    text-transform: capitalize;
+    font-size: 40px;
+    align-self: center;
+    text-transform: uppercase;
+    margin-bottom: 0;
 }
 .create{
     color: rgb(2, 91, 163);
@@ -31,18 +33,14 @@
     display: flex;
     justify-content: left;
     flex-direction: row;
-    margin: auto;
     width:inherit;
     padding-bottom: 1%;
-    padding-left: 10px;
     border: none;
     
 }
 .quiz-name p{
-
-    border: none;
-    display: inline;
-    font-size: 25px;
+    font-size:25px;
+    
 }
 .quiz-name input{
 
@@ -50,69 +48,90 @@
     border-bottom: 1px solid;
     padding-right: none;
     display: inline-block;
-    height: 100px;
-    font-size: 25px;
+
+
 }
 .form-container{
     border: 2px solid black;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    width: 80%;
+    font-size: 25px;
     padding: 2%;
+    width: 70%;
 }
+.form-container input{
+    font-size:20px ;
+}
+
 .row{
     display: flex;
-    justify-content: left;
-    flex-direction: row;
-    margin: auto;
-    padding-bottom: 2%;
-    width: inherit;
+    margin-bottom: 5px;
     padding-left: 10px;
+    height: 50px;
 }
 .question-input{
     border: none;
     border-bottom: 1px solid black;
     width: 100%;
-    font-size: 30px;
+    font-size: 25px;
 }
 .prefix{
-    padding-right: 5px;
+    display: flex;
+    justify-content: center;
     background-color: rgb(54, 235, 241);
     margin-right: 5px;
     width: 100px;
-    text-align: center;
-    padding-top: 40px;
-    padding-left: 5px;
-    height: 100px;
-    font-size: 20px;
+    height: inherit;
+    font-size: 40px;
+    color: rgb(2, 26, 32);
 }
-
 .answer{
-    border: none;
-    border-bottom: 1px solid black;
     width: 100%;
-    font-size: 30px;
+    border: none;
+    border-bottom: 1px solid;
+}
+.right-answer{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+
 }
 .right{
-    margin-right: 5px;
-    padding-right: 5px;
-    width: 50%;
     font-size: 30px;
+    
 }
 .answers{
     font-size: 30px;
+
 }
 .select{
-    width: 20%;
+    padding: 10px 10px;
+    border-radius: 5px;
     font-size: 20px;
-    padding-right: 20%;
-    margin-right: 40%;
+    color: white;
+    background-color: rgb(25, 160, 201);
+    width: 70px;
+    height: 55%;
+    margin-top: 30px;
+}
+.add{
+    display: flex;
+    justify-content: center;
+    height: 50px;
 }
 .send{
-    width: 30%;
+    width: 120px;
     font-size: 30px;
-    padding-left: 12%;
+    justify-content: center;
+    border: none;
+    background-color: white;
+    
+}
+.send:focus{
+    border: 1px solid;
+    border-radius:10px;
+    background-color: gainsboro;
 }
 
 footer, .questions-container {
@@ -126,9 +145,6 @@ footer {
     justify-content: center;
 }
 
-button {
-    margin: 5px;
-}
 
 .questions {
     font-size: 150%;
