@@ -104,7 +104,7 @@ legend{
     border: none;
     border-bottom: 1px solid;
 }
-.row{
+.right-answer{
     display: flex;
     justify-content: center;
 }
@@ -123,15 +123,18 @@ legend{
     height: 55%;
     margin-top: 30px;
 }
-
+.add{
+    display: flex;
+    justify-content: center;
+    height: 50px;
+}
 .send{
     width: 120px;
     font-size: 30px;
-    margin-top: 25px;
+    justify-content: center;
     border: none;
     background-color: white;
-    height: 55%;
-
+    
 }
 .send:focus{
     border: 1px solid;
