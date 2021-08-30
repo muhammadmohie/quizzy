@@ -24,6 +24,8 @@ form.addEventListener('submit', e => {
     fourthAnswer.value = ''
     question.focus()
     console.log(questions)
+    if (questions.length > 0)
+        document.querySelector('.hide').style.display = "initial"
 })
 
 

@@ -3,6 +3,8 @@ let oldT ="";
 function removeQ(btn){  //Remove a whole question.
     questions.splice(questions.findIndex(x => x.title === String(btn.closest(".question").innerText)),1);oldT ="";
     (btn.closest(".question").parentNode).remove(btn.parentNode);
+    if (questions.length == 0)
+        document.querySelectorAll('.hide').forEach(el => el.style.display = "none")
     
 }
 
