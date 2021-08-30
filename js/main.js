@@ -1,7 +1,3 @@
-
-
-
-
 const mainContainer = document.querySelector(".main-container");
 const confirmation = document.querySelector(".confirmation");
 const quizContainer = document.querySelector(".quiz-container");
@@ -77,7 +73,12 @@ const answer = document.querySelector(".answer");
       confirmation.style.display = "none";
       quizContainer.style.display = "block";
       const quizTitle = document.querySelector('.quiz-title');
-      quizTitle.innerText = `${quizName.toUpperCase()} quiz.`;
+      let numberOfQuestions = loadedQuiz.questions.length;
+      let questionsCountSpan = document.createElement('span');
+      questionsCountSpan.classList.add('questions-count')
+      questionsCountSpan.innerText = `(${numberOfQuestions} questions).`
+      quizTitle.innerText = `${quizName.toUpperCase()} quiz `;
+      quizTitle.appendChild(questionsCountSpan);
       startTimer(timeCounter);
     }
 
@@ -107,34 +108,32 @@ const answer = document.querySelector(".answer");
     }
 
     //==============================================================================
-    function addActivClass(){
+    function addActiveClass(){
       //========================== Active class ================================================================
       answers.children.item(0).addEventListener("click", () => {    // save the correct answer
-            
         answers.children.item(1).classList.remove('choice');
         answers.children.item(2).classList.remove('choice');
         answers.children.item(3).classList.remove('choice');
         answers.children.item(0).classList.add('choice');
-       
       })
-      
       answers.children.item(1).addEventListener("click", () => {    // save the correct answer
-      
         answers.children.item(0).classList.remove('choice');
         answers.children.item(2).classList.remove('choice');
         answers.children.item(3).classList.remove('choice');
         answers.children.item(1).classList.add('choice');
-       
       })
       answers.children.item(2).addEventListener("click", () => {    // save the correct answer
-      
         answers.children.item(0).classList.remove('choice');
         answers.children.item(1).classList.remove('choice');
         answers.children.item(3).classList.remove('choice');
         answers.children.item(2).classList.add('choice');
-     
       })
-      
+      answers.children.item(3).addEventListener("click", () => {    // save the correct answer
+        answers.children.item(0).classList.remove('choice');
+        answers.children.item(1).classList.remove('choice');
+        answers.children.item(2).classList.remove('choice');
+        answers.children.item(3).classList.add('choice');
+      })
       
       //==========================================================================================
       
@@ -143,8 +142,9 @@ const answer = document.querySelector(".answer");
 
     //===============================================================================
     proceed.addEventListener("click", () => {
-      // load the first quetion
+      // load the first quetion title
       question.textContent = `Q${q + 1}: ${loadedQuiz.questions[0].title}`;
+      // load the first quetion answers
       for (let i = 0; i < loadedQuiz.questions[0].answers.length; i++) {
         let ansr = document.createElement('div');
         ansr.classList.add('answer');
@@ -152,23 +152,17 @@ const answer = document.querySelector(".answer");
         answers.appendChild(ansr);
 
         answers.children.item(i).addEventListener("click", () => {    // save the correct answer
-          // c = i;
-          // answers.children.item(i).classList.add('choice');
-          // results[q] = c;
           c = i;
           answers.children.item(i).classList.add('choice');
-           results[q] = c;
-           answers.querySelector('.choice').classList.remove('choice');
-           answers.children.item(i).classList.add('choic');
+          results[q] = c;
+          answers.querySelector('.choice').classList.remove('choice');
+          answers.children.item(i).classList.add('choic');
         })
-       
       }
-      addActivClass();
-   
+      addActiveClass();
     });
     
     next.addEventListener('click', () => {
-     // results[q] = -1;
       if (q === loadedQuiz.questions.length - 2) {
         next.textContent = 'Finish attempt';
       
@@ -181,9 +175,6 @@ const answer = document.querySelector(".answer");
         displayQuizResult(elapsedTime-1);
         return;
       }
-
-      
-
       answers.innerHTML = '';
       q++;
       if (q <= loadedQuiz.questions.length - 1) {
@@ -197,17 +188,12 @@ const answer = document.querySelector(".answer");
           answers.children.item(i).addEventListener("click", () => {     // save trhe correct answers 
             c = i;
             results[q] = c;
-            answers.children.item(i).classList.add('choice');
-            answers.querySelector('.choice').classList.remove('choice');
-            answers.children.item(i).classList.add('choice');
           });
         }
-        addActivClass();  // adding active class
-        if(results[q]!=undefined){
+        addActiveClass();  // adding active class
+        if(results[q]!==undefined)
           answers.children.item(results[q]).classList.add('choice');
-        }
       }
-      // c = results[q];
     });
 
     previous.addEventListener('click', () => {
@@ -234,8 +220,9 @@ const answer = document.querySelector(".answer");
           answers.children.item(i).classList.add('choice');
         })
       }
-      addActivClass();
-      answers.children.item(results[q]).classList.add('choice');
+      addActiveClass();
+      if (results[q]!==undefined)
+        answers.children.item(results[q]).classList.add('choice');
     });
 
 
@@ -243,15 +230,15 @@ const answer = document.querySelector(".answer");
     function displayQuizResult(timeTaken) {
       let total = loadedQuiz.questions.length;
       let answered=0;
-      let unanswered;
+      let unanswered=0;
       let correctAnswers=0;
-      let wrongAnswers;
+      let wrongAnswers=0;
 
       if (timeTaken<=0)
         timeTaken=1;
 
       for (let i = 0; i < results.length; i++) {
-        if (results[i] == cor[i]) {
+        if (results[i] === cor[i]) {
           answered++;
           correctAnswers++;
         }
@@ -265,61 +252,43 @@ const answer = document.querySelector(".answer");
 
       let status = (percentage>=70) ? 'Passed' : 'Failed';
 
-      const resultTitle = document.createElement('h1');
-      resultTitle.textContent = `Your ${requiredQuiz} quiz result.`
-      resultTitle.classList.add('result-title');
-      resultContainer.appendChild(resultTitle);
+      const resultTitle = document.querySelector('.result-title');
+      resultTitle.textContent = `Your ${requiredQuiz} quiz result: `
 
-      const gradeReport = document.createElement('div');
-      gradeReport.classList.add('grade-report');
+      const statusSpan = document.createElement('span');
+      statusSpan.innerText = `(${status}).`;
+      if (status === 'Passed')
+        statusSpan.classList.add('passed');
+      else 
+        statusSpan.classList.add('failed');
 
-      const rowItem1 = document.createElement('p');
-      rowItem1.innerText = `Your status: ${status}`;
-      rowItem1.classList.add('grade-report-item');
-      const rowItem2 = document.createElement('p');
-      rowItem2.innerText = `Passing grade: 70%.`;
-      rowItem2.classList.add('grade-report-item');
+      resultTitle.appendChild(statusSpan);
 
-      const rowItem3 = document.createElement('p');
-      rowItem3.innerText = `Quiz questions: ${total}.`;
-      rowItem3.classList.add('grade-report-item');
-      const rowItem4 = document.createElement('p');
-      rowItem4.innerText = `Answered question: ${answered}.`;
-      rowItem4.classList.add('grade-report-item');
+      const passingGradeSpan = document.querySelector('.passing-grade');
+      passingGradeSpan.innerText = `${70}%`;
 
-      const rowItem5 = document.createElement('p');
-      rowItem5.innerText = `Correct answers: ${correctAnswers}.`;
-      rowItem5.classList.add('grade-report-item');
-      const rowItem6 = document.createElement('p');
-      rowItem6.innerText = `Wrong answers: ${wrongAnswers}.`;
-      rowItem6.classList.add('grade-report-item');
+      const totalQuestionsSpan = document.querySelector('.total-questions');
+      totalQuestionsSpan.innerText = `${total}`;
 
-      const rowItem7 = document.createElement('p');
-      rowItem7.innerText = `Unanswered: ${unanswered}.`;
-      rowItem7.classList.add('grade-report-item');
-      const rowItem8 = document.createElement('p');
-      rowItem8.innerText = `Your score is: ${correctAnswers} points`;
-      rowItem8.classList.add('grade-report-item');
+      const answeredSpan = document.querySelector('.answered');
+      answeredSpan.innerText = `${answered}`;
 
-      const rowItem9 = document.createElement('p');
-      rowItem9.innerText = `Percentage form: ${percentage}%.`;
-      rowItem9.classList.add('grade-report-item');
-      const rowItem10 = document.createElement('p');
-      rowItem10.innerText = `Taken time: ${timeTaken} s.`;
-      rowItem10.classList.add('grade-report-item');
+      const correctAnswersSpan = document.querySelector('.correct-answers');
+      correctAnswersSpan.innerText = `${correctAnswers}`;
 
-      gradeReport.appendChild(rowItem1);
-      gradeReport.appendChild(rowItem2);
-      gradeReport.appendChild(rowItem3);
-      gradeReport.appendChild(rowItem4);
-      gradeReport.appendChild(rowItem5);
-      gradeReport.appendChild(rowItem6);
-      gradeReport.appendChild(rowItem7);
-      gradeReport.appendChild(rowItem8);
-      gradeReport.appendChild(rowItem9);
-      gradeReport.appendChild(rowItem10);
+      const percentageSpan = document.querySelector('.percentage');
+      percentageSpan.innerText = `${percentage}%`;
 
-      resultContainer.appendChild(gradeReport);
+      const wrongAnswersSpan = document.querySelector('.wrong-answers');
+      wrongAnswersSpan.innerText = `${wrongAnswers}`;
+
+      const unansweredSpan = document.querySelector('.unanswered');
+      unansweredSpan.innerText = `${unanswered}`;
+
+      const takenTimeSpan = document.querySelector('.taken-time');
+      takenTimeSpan.innerText = `${timeTaken} s`; 
+
+      // `${min < 10 ? "0" : ""}${min}:${sec < 10 ? "0" : ""}${sec}`;
 
       const showResult = document.createElement('div');
       for (let i=0; i < loadedQuiz.questions.length; i++) {
@@ -345,10 +314,6 @@ const answer = document.querySelector(".answer");
       }
       resultContainer.appendChild(showResult);
     }
-
-
-
-
   } catch (error) {
     console.log(error);
   }
