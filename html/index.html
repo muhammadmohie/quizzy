@@ -5,25 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>quizzy</title>
 </head>
 <body>
-    <nav class="menu">
-        <ul class="menubar">
-            <li class="menu-item">
-                <a href="index.html">home</a>
-            </li>
-            <li class="menu-item">
-                <a href="take-quiz.html">take quiz</a>
-            </li>
-            <li class="menu-item">
-                <a href="create-quiz.html">create quiz</a>
-            </li>
-            <li class="menu-item">
-                <a href="manage-quiz.html">manage existing quizzes</a>
-            </li>
-        </ul>
-    </nav>
+    <div class="topnav" id="myTopnav">
+        <a href="index.html class="active">Home</a>
+        <a href="take-quiz.html">Take quiz</a>
+        <a href="create-quiz.html">Create quiz</a>
+        <a href="manage-quiz.html">manage existing quiz</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+    </div>
     <h1 class="greeting"> welcome to quizzy </h1>
     <p class="discription">
         Quizzy is an online quiz making website created by: Mohamed Mohie, Adham Salama, Mohamed
@@ -38,4 +32,5 @@
         <li>Editing and manage existing quizzes.</li>
     </ol>    
 </body>
+<script src="../js/home.js"></script>
 </html>
