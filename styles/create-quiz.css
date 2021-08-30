@@ -11,6 +11,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 90%;
+    margin: 5% auto;
+    border: 1px solid;
+    border-radius: 10px;
 }
 .question-head{
     font-size: 30px;
@@ -24,9 +28,9 @@
 .quiz{
     color: rgb(3, 134, 241);
 }
-legend{
+.legend{
     align-self: center;
-    font-size: 30px;
+    font-size: 40px;
     align-self: center;
     text-transform: uppercase;
     margin-bottom: 0;
@@ -63,7 +67,7 @@ legend{
     font-size: 25px;
     padding: 2%;
     width: 90%;
-    margin: 5% auto;
+    margin: 5%;
 }
 .form-container input{
     font-size:20px ;
@@ -104,9 +108,13 @@ legend{
     border: none;
     border-bottom: 1px solid;
 }
-.right-answer{
+.sel{
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+}
+.row{
+    display: flex;
+    justify-content: space-evenly;
 }
 .right{
     font-size: 30px;
@@ -123,18 +131,15 @@ legend{
     height: 55%;
     margin-top: 30px;
 }
-.add{
-    display: flex;
-    justify-content: center;
-    height: 50px;
-}
+
 .send{
     width: 120px;
     font-size: 30px;
-    justify-content: center;
+    margin-top: 25px;
     border: none;
     background-color: white;
-    
+    height: 55%;
+
 }
 .send:focus{
     border: 1px solid;
@@ -143,21 +148,31 @@ legend{
 }
 
 footer, .questions-container {
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
     word-break: break-word;
+    width: 90%;
+    padding: 0 1%;
 }
 
 footer {
     display: flex;
     justify-content: center;
+    margin-bottom: 5px;
 }
 
-
-.questions {
+.title-q{
+    text-align: center;
+    color: rgb(2, 91, 163);
+}
+.title-q span{
+    color: rgb(3, 134, 241);
+}
+.questions-container {
     font-size: 150%;
     border: 2px solid;
     border-radius:20px ;
+    margin-bottom: 20px;
 }
 
 .question-title{
