@@ -5,31 +5,76 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/take-quiz.css">
     <link rel="stylesheet" href="styles/manage-quiz.css">
     <title>Manage Quizzes</title>
 </head>
 
 <body>
     <div class="container">
-        <div class="main-container">
+        <div class="main-container" autofocus>
             <h1 class="main-container-title">Which quiz do you want to Manage?</h1>
             <div class="premade-quizzes"></div>
         </div>
     </div>
+    <div>
+        <div style="display: flex; justify-content: center;">
+         <form class="form-container hide">
+
+            <div class="row-name">
+                <p class="question-head">Question:</p>
+            </div>
+            <div class="question-cont">
+                <textarea name="question"  cols="30" rows="5" class="question-title question-input"></textarea>
+            </div>
+            <div class="row-name">
+                <p class="answers">Choices:</p>
+            </div>
+            <div class="answer-A row">
+                <div class="prefix-A prefix">A</div>
+                <input type="text" class="A answer first-answer" placeholder="Choice A" required>
+            </div>
+            <div class="answer-B row">
+                <div class="prefix-B prefix">B</div>
+                <input type="text" class="B answer second-answer" placeholder="Choice B" required>
+            </div>
+            <div class="answer-C row">
+                <div class="prefix-C prefix">C</div>
+                <input type="text" class="C answer third-answer" placeholder="Choice C" required>
+            </div>
+            <div class="answer-D row">
+                <div class="prefix-D prefix">D</div>
+                <input type="text" class="D answer fourth-answer" placeholder="Choice D" required>
+            </div>
+            <div class="right-answer">
+                <p class="right">choose right answer: </p>
+                <select id="correct-answer" required class="row select">
+                    <option value="0" selected>A</option>
+                    <option value="1">B</option>
+                    <option value="2">C</option>
+                    <option value="3">D</option>
+                </select>
+            </div>
+            <div class="add">
+                <button type="submit" class="send">+ Add</button>
+            </div>
+        </form> 
+    </div>
     <div class="container hide">
-        <h1>Questions </h1>
+        <div class="quiz-title"><h1>Questions </h1><button class ="remove-quiz" onclick="removeQuiz(this);"><i class="remove-quiz fa fa-trash" aria-hidden="true" data-html2canvas-ignore="true"> Delete Quiz</i></button></div>
         <ol class="questions"></ol>
     </div>
+    
     <footer class="hide">
         <button type="submit" id="print-quiz">Print Quizz</button>
         <button type="submit" id="print-answers">Print Answers</button>
         <button type="submit" id="save-quiz">Save Quiz</button>
     </footer>
+</div>
     <script src="js/manage-quiz.js"></script>
     <script src="js/editAndRemoveQuestion.js"></script>
     <script src="js/createQuestions.js"></script>
     <script src="js/postData.js"></script>
+    <script src="js/create-quiz.js"></script> 
     <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/7cd9c8480f.js" crossorigin="anonymous"></script>
 </body>

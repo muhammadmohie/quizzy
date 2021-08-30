@@ -47,3 +47,7 @@ function upDArrayA(field){  //edit answer in Array using outoffocus attribute.
     field.setAttribute("style","border:none;")
     oldT =""; 
 }
+function removeQuiz(btn){
+    questions.splice(0,questions.length);
+    btn.closest(".container").remove();
+}

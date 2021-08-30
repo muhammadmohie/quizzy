@@ -49,4 +49,3 @@ document.querySelector('#print-answers').onclick = () => {
     html += '</ol>'
     html2pdf(html, {filename: 'answers.pdf'})
 }
-
