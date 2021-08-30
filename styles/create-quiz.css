@@ -17,17 +17,20 @@
     margin: 20px 0px;
     padding: 0;
 }
-.header{
-    font-size: 40px;
-    align-self: center;
-    text-transform: uppercase;
-    margin-bottom: 0;
-}
+
 .create{
     color: rgb(2, 91, 163);
 }
 .quiz{
     color: rgb(3, 134, 241);
+}
+legend{
+    align-self: center;
+    font-size: 30px;
+    align-self: center;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    margin-top: 0;
 }
 .quiz-name{
     display: flex;
@@ -48,6 +51,7 @@
     border-bottom: 1px solid;
     padding-right: none;
     display: inline-block;
+    width: 25%;
 
 
 }
@@ -64,47 +68,53 @@
     font-size:20px ;
 }
 
-.row{
+.row-name{
     display: flex;
-    margin-bottom: 5px;
-    padding-left: 10px;
-    height: 50px;
+
 }
 .question-input{
     border: none;
     border-bottom: 1px solid black;
-    width: 100%;
+    width: 84.5%;
     font-size: 25px;
 }
-.prefix{
+
+.answers-row1{
+    font-size: 30px;
     display: flex;
-    justify-content: center;
-    background-color: rgb(54, 235, 241);
-    margin-right: 5px;
-    width: 100px;
-    height: inherit;
-    font-size: 40px;
-    color: rgb(2, 26, 32);
+    margin-top: 30px;
+    height: 100px;
+    
+}
+.answers-row1 input{
+    width: 50%;
+    margin-left: 15px;
+}
+.answers-row2{
+    font-size: 30px;
+    display: flex;
+    margin-top: 50px;
+    height: 100px;
+}
+.answers-row2 input{
+    width: 50%;
+    margin-left: 15px;
 }
 .answer{
-    width: 100%;
     border: none;
     border-bottom: 1px solid;
 }
 .right-answer{
     display: flex;
     flex-direction: row;
-    justify-content: left;
+    margin-left: 12%;
 
 }
 .right{
     font-size: 30px;
     
 }
-.answers{
-    font-size: 30px;
 
-}
 .select{
     padding: 10px 10px;
     border-radius: 5px;

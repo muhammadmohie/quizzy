@@ -9,39 +9,24 @@
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1><span class="create">create </span><span class="quiz">quiz</span></h1>
-        </div>
         <form class="form-container">
+            <legend> <h1><span class="create">create </span><span class="quiz">quiz</span></h1></legend>
             <div class="quiz-name">
                 <p class="title">Quiz Name:</p>
                 <input type="text" id="quiz-name" autofocus class="quiz-name" placeholder="type the quiz name" required>
             </div>    
             <div class="row-name">
                 <p class="question-head">Question:</p>
-            </div>
-            <div class="question-cont">
                 <textarea name="question" class="question-title question-input"></textarea>
             </div>
-            <div class="row-name">
-                <p class="answers">Choices:</p>
-            </div>
-            <div class="answer-A row">
-                <div class="prefix-A prefix">A</div>
-                <input type="text" class="A answer first-answer" placeholder="Choice A" required>
-            </div>
-            <div class="answer-B row">
-                <div class="prefix-B prefix">B</div>
-                <input type="text" class="B answer second-answer" placeholder="Choice B" required>
-            </div>
-            <div class="answer-C row">
-                <div class="prefix-C prefix">C</div>
-                <input type="text" class="C answer third-answer" placeholder="Choice C" required>
-            </div>
-            <div class="answer-D row">
-                <div class="prefix-D prefix">D</div>
-                <input type="text" class="D answer fourth-answer" placeholder="Choice D" required>
-            </div>
+            <div class="answers-row1">
+                        <input type="text" class="A answer first-answer" placeholder="Choice A" required>    
+                        <input type="text" class="B answer second-answer" placeholder="Choice B" required>
+                    </div>
+            <div class="answers-row2">
+                        <input type="text" class="C answer third-answer" placeholder="Choice C" required>
+                        <input type="text" class="D answer fourth-answer" placeholder="Choice D" required>
+                    </div>
             <div class="right-answer">
                 <p class="right">choose right answer: </p>
                 <select id="correct-answer" required class="row select">
@@ -56,18 +41,18 @@
             </div>
         </form>
     </div>
-    <div class="questions-container">
+    <div class="questions-container" style="visibility: hidden;">
         <h1>Questions </h1>
         <ol class="questions"></ol>
     </div>
-    <footer>
+    <footer style="visibility: hidden;">
         <button type="submit" id="print-quiz">Print Quizz</button>
         <button type="submit" id="print-answers">Print Answers</button>
         <button type="submit" id="save-quiz">Save Quiz</button>
     </footer>
     <script src="../js/create-quiz.js"></script>
     <script src="../js/editAndRemoveQuestion.js"></script>
-    <script src="..js/createQuestions.js"></script>
+    <script src="../js/createQuestions.js"></script>
     <script src="../js/postData.js"></script>
     <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/7cd9c8480f.js" crossorigin="anonymous"></script>
