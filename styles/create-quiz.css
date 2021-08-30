@@ -52,8 +52,8 @@ legend{
     padding-right: none;
     display: inline-block;
     width: 25%;
-
-
+    margin-top: 15px;
+    height: 60px;
 }
 .form-container{
     border: 2px solid black;
@@ -62,7 +62,8 @@ legend{
     flex-direction: column;
     font-size: 25px;
     padding: 2%;
-    width: 70%;
+    width: 90%;
+    margin: 5% auto;
 }
 .form-container input{
     font-size:20px ;
@@ -75,7 +76,7 @@ legend{
 .question-input{
     border: none;
     border-bottom: 1px solid black;
-    width: 84.5%;
+    width: 90%;
     font-size: 25px;
 }
 
@@ -83,7 +84,7 @@ legend{
     font-size: 30px;
     display: flex;
     margin-top: 30px;
-    height: 100px;
+    height: 60px;
     
 }
 .answers-row1 input{
@@ -93,8 +94,7 @@ legend{
 .answers-row2{
     font-size: 30px;
     display: flex;
-    margin-top: 50px;
-    height: 100px;
+    height: 60px;
 }
 .answers-row2 input{
     width: 50%;
@@ -106,9 +106,7 @@ legend{
 }
 .right-answer{
     display: flex;
-    flex-direction: row;
-    margin-left: 12%;
-
+    justify-content: center;
 }
 .right{
     font-size: 30px;
