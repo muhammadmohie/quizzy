@@ -9,15 +9,15 @@
 </head>
 <body>
     <div class="container">
+        <div class="legend"> <h1><span class="create">create </span><span class="quiz">quiz</span></h1></div>
         <form class="form-container">
-            <legend> <h1><span class="create">create </span><span class="quiz">quiz</span></h1></legend>
             <div class="quiz-name">
                 <p class="title">Quiz Name:</p>
                 <input type="text" id="quiz-name" autofocus class="quiz-name" placeholder="type the quiz name" required>
             </div>    
             <div class="row-name">
                 <p class="question-head">Question:</p>
-                <textarea name="question" class="question-title question-input"></textarea>
+                <textarea name="question" class="question-title question-input" required></textarea>
             </div>
             <div class="answers-row1">
                         <input type="text" class="A answer first-answer" placeholder="Choice A" required>    
@@ -27,8 +27,8 @@
                         <input type="text" class="C answer third-answer" placeholder="Choice C" required>
                         <input type="text" class="D answer fourth-answer" placeholder="Choice D" required>
                     </div>
-            <div class="right-answer">
-                <p class="right">choose right answer: </p>
+            <div class="row">
+               <div class="sel"> <p class="right">Select Answer:</p>
                 <select id="correct-answer" required class="row select">
                     <option value="0" selected>A</option>
                     <option value="1">B</option>
@@ -36,20 +36,24 @@
                     <option value="3">D</option>
                 </select>
             </div>
-            <div class="add">
-                <button type="submit" class="send">+ Add</button>
+                <div class="add">
+                    <button type="submit" class="send">+ Add</button>
+                </div>
             </div>
+
         </form>
-    </div>
-    <div class="questions-container" style="visibility: hidden;">
-        <h1>Questions </h1>
+    
+    <div class="questions-container" style="visibility:  hidden;">
+        <h1 class="title-q"><span>Quest</span>ions </h1>
         <ol class="questions"></ol>
+        <footer>
+            <button type="submit" id="print-quiz">Print Quizz</button>
+            <button type="submit" id="print-answers">Print Answers</button>
+            <button type="submit" id="save-quiz">Save Quiz</button>
+        </footer>
     </div>
-    <footer style="visibility: hidden;">
-        <button type="submit" id="print-quiz">Print Quizz</button>
-        <button type="submit" id="print-answers">Print Answers</button>
-        <button type="submit" id="save-quiz">Save Quiz</button>
-    </footer>
+
+</div>
     <script src="../js/create-quiz.js"></script>
     <script src="../js/editAndRemoveQuestion.js"></script>
     <script src="../js/createQuestions.js"></script>
