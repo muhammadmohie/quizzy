@@ -33,6 +33,16 @@ api.get('/quizzes/:quiz', (req, res) => {
     res.json(quizzes.filter(quizz => quizz.name == name)[0])
 })
 
+api.delete('/quizzes/:quiz', (req, res) => {
+    let name = req.params.quiz
+    let quizzes = getQuizzes()
+    let index = quizzes.findIndex(quiz => quiz.name == name)
+    if (index == -1)
+        return res.sendStatus(404)
+    quizzes.splice(index, 1)
+    saveQuizzes(quizzes)
+    res.sendStatus(200)
+})
 
 const port = 3000
 
