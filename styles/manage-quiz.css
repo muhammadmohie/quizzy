@@ -244,5 +244,5 @@ h2{
     padding: 0;
 }
 .hide{
-    visibility: hidden;
+    display: none;
 }
