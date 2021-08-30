@@ -29,7 +29,9 @@
             <div class="quiz-header">
                 <div class="quiz-title"></div>
                 <div class="timer">
-                    Time left: <span class="time" id="t">00:00</span>
+                    <div>
+                        Time left: <span class="time" id="t">00:00</span>
+                    </div>
                 </div>
             </div>
             <div class="question-text question">
@@ -44,12 +46,22 @@
                 <div class="answer" id="4">D. answer4</div> -->
             </div>
             <div class="questions-browsing">
-                <button class="browsing-btns previous " >Previous</button>
+                <button class="browsing-btns previous">Previous</button>
                 <button class="browsing-btns next">Next</button>
             </div>
         </div>
         <div class="result-container">
             <h1 class="result-title"></h1>
+            <div class="grade-report">
+                <p class="grade-report-item">Quiz questions: <span class="total-questions report-items"></span>.</p></p>
+                <p class="grade-report-item">Answered question: <span class="answered report-items"></span>.</p>
+                <p class="grade-report-item">Correct answers: <span class="correct-answers report-items"></span>.</p>
+                <p class="grade-report-item">Wrong answers: <span class="wrong-answers report-items"></span>.</p>
+                <p class="grade-report-item">Percentage form: <span class="percentage report-items"></span>.</p>
+                <p class="grade-report-item">Passing grade: <span class="passing-grade report-items"></span>.</p>
+                <p class="grade-report-item">Unanswered: <span class="unanswered report-items"></span>.</p>
+                <p class="grade-report-item">Taken time: <span class="taken-time report-items"></span>.</p>
+            </div>
         </div>
     </div>
     <script src='../js/main.js'></script>
