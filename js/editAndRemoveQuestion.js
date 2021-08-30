@@ -49,5 +49,5 @@ function upDArrayA(field){  //edit answer in Array using outoffocus attribute.
 }
 function removeQuiz(btn){
     questions.splice(0,questions.length);
-    btn.closest(".container").remove();
+    btn.closest(".container").style.display = "none";
 }

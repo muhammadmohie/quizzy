@@ -1,16 +1,17 @@
 let questions = [];
-(async () => {
+async function loadQuizzes()  {
     // Get quizzes
     let quizzes = await fetch('http://127.0.0.1:3000/quizzes').then(res => res.json())
     // Display quizzes
     let quizzesList = document.querySelector('.premade-quizzes')
+    quizzesList.innerHTML = ''
     quizzes.forEach(quiz => quizzesList.innerHTML += `<button class="quizzes" href="#">${quiz}</button>`)
     // Add eventListener
     document.querySelectorAll('.quizzes').forEach(btn => btn.addEventListener('click', async () => {
         let quizName = btn.innerText
         let quiz = await fetch(`http://127.0.0.1:3000/quizzes/${quizName}`).then(res => res.json())
         questions = quiz.questions
-        document.querySelectorAll('.hide').forEach(div => div.style.visibility = "visible")
+        document.querySelectorAll('.hide').forEach(div => div.style.display = "flex")
         let quizQuestions = document.querySelector('.questions')
         quizQuestions.innerHTML = ''
         quiz.questions.forEach(question => {
@@ -33,7 +34,8 @@ let questions = [];
         }
         
     }))
-})()
+}
+loadQuizzes()
 
 document.querySelector('#print-quiz').onclick = () => {
     let questions = document.querySelector('.questions')
@@ -49,3 +51,9 @@ document.querySelector('#print-answers').onclick = () => {
     html += '</ol>'
     html2pdf(html, {filename: 'answers.pdf'})
 }
+
+let deleteBtn = document.querySelector('.remove-quiz')
+deleteBtn.addEventListener('click', e => {
+    removeQuiz(deleteBtn)
+    loadQuizzes()
+})

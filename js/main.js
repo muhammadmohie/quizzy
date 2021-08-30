@@ -330,7 +330,7 @@ const answer = document.querySelector(".answer");
         answers.classList.add('answers');
         for (let j = 0; j < loadedQuiz.questions[i].answers.length; j++) {
           let ansr = document.createElement('div');
-          ansr.classList.add('answer');
+          ansr.classList.add('result_answers');
           ansr.textContent = arrange[j] + '. ' + loadedQuiz.questions[i].answers[j];
           if (results[i] == undefined)
             question.classList.add('left-question');
