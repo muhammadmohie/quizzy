@@ -1,32 +1,40 @@
-*{
+* {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: monospace, Helvetica, sans-serif;
 }
+
 :root {
     --primary-color: #4e148c;
     --secondary-color: #ff6d00;
     --tertiary-color: #18ccae;
-    font-family: monospace, Helvetica, sans-serif;
+    --blue-color: #3877ff;
+    --red-color: #e8353e;
 }
-
 .Eldest-container{
     margin: 0;
     padding-top: 20px;
     padding-bottom: 20px;
     border-radius: 10px;
-    background-color: #76aacf;
-
+    background-color: var(--tertiary-color);
+    
 }
 .container {
     width: 90%;
-    margin: 5% auto;
-    border: 3px solid var(--primary-color);
-    border-radius: 10px;
+    font-size: 20px;
+    margin: 8% 0 5% 5%;
+    word-break: break-word;
     display: flex;
     flex-direction: column;
-    justify-content:space-evenly;
-    padding: 1% 2%;
-    box-shadow: 0 3px 10px #4e148c;
+    padding: 3%;
+    border: 2px solid Var(--primary-color);
+    border-radius: 10px;
     background-color: white;
+
+}
+.container.hide{
+    margin-top: 5%;
 }
 .main-container{
     margin: 3%;
@@ -88,131 +96,138 @@
     cursor: pointer;
 }
 
-.form-container{
-    border: 3px solid #4e148c;
-    border-radius: 20px;
+.form-container {
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
-    font-size: 25px;
-    padding: 2%;
+    font-size: 20px;
+    padding: 3%;
     width: 90%;
     margin: 0 5%;
-    box-shadow: 0 3px 10px #4e148c;
     background-color: white;
 }
-legend{
-    color: rgb(3, 134, 241);
-    text-decoration: underline;
+.form-title, .title-q {
+    margin-bottom: 3%;
+    color: var(--secondary-color);
+    text-align: center;
 }
-.form-container span{
-    color: rgb(2, 91, 163);
+.row-name {
+    margin: 3% 0;
 }
-.form-container input{
-    font-size:20px ;
-}
-
-.row-name{
+.row-name {
     display: flex;
-
+    align-content: center;
 }
-.question-input{
+.question-name {
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 24px;
+}
+.question-input {
+    font-size: 20px;
+    height: 30px;
+    color: var(--blue-color);
     border: none;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--blue-color);
     width: 90%;
-    font-size: 25px;
+    outline: none;
+    margin-left: 10px;
 }
-
 .answers-row1{
-    font-size: 30px;
     display: flex;
-    margin-top: 30px;
-    height: 60px;
-    
+    margin-bottom: 2%;
+    height: 30px;
 }
 .answers-row1 input{
+    font-size: 20px;
     width: 50%;
-    margin-left: 15px;
+    margin-left: 2%;
+    outline: none;
 }
-.answers-row2{
-    font-size: 30px;
+.answers-row2 {
     display: flex;
-    height: 60px;
+    margin-bottom: 4%;
+    height: 30px;
 }
 .answers-row2 input{
+    font-size: 20px;
     width: 50%;
-    margin-left: 15px;
+    margin-left: 2%;
+    outline: none;
 }
-.answer{
+.answer {
     border: none;
-    border-bottom: 1px solid;
-}
-.sel{
-    display: flex;
-    flex-direction: row;
-}
-.row{
-    display: flex;
-    justify-content: space-evenly;
-}
-.right{
-    font-size: 30px;
-    
+    color: var(--blue-color);
+    border-bottom: 1px solid var(--blue-color);
 }
 
-.select{
-    padding: 10px 10px;
+.sel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.right {
+    color: var(--primary-color);
+    font-size: 24px;
+    margin-right: 20px;
+}
+.select {
+    border: none;
     border-radius: 5px;
     font-size: 20px;
-    background-color:rgb(3, 134, 241);
-    color: white;
-    width: 70px;
-    height: 45%;
-    margin-top: 30px;
+    color: var(--primary-color);
+    background-color: #fff;
+    border: 2px solid Var(--primary-color);
+    width: 80px;
+    height: 40px;
+    text-align: center;
+    padding: 0 5px;
+    cursor: pointer;
+}
+.send {
+    width: 150px;
+    height: 40px;
+    font-size: 20px;
+    color: var(--primary-color);
+    background-color: #fff;
+    border: 2px solid Var(--primary-color);
+    border-radius: 5px;
+    cursor: pointer;
+}
+.select:hover, .send:hover, .submit-btn:hover {
+    color: #fff;
+    background-color: var(--primary-color);
+}
+.row {
+    display: flex;
+    justify-content:space-evenly;
 }
 
-.send{
-    width: 120px;
-    font-size: 30px;
-    margin-top: 30px;
-    border: none;
-    background-color:rgb(3, 134, 241);
-    color: white;
-    border-radius: 10px;
-    height: 50%;
-
+#quiz-name{
+    color: var(--secondary-color);
 }
-.send:focus{
-    border: 1px solid;
-    border-radius:10px;
-    background-color: rgb(2, 91, 163);
-}
-
-footer, .questions-container {
-    margin-left: 5%;
-    margin-right: 5%;
-    word-break: break-word;
-    width: 90%;
-    padding: 0 1%;
-}
-
 footer {
     display: flex;
     justify-content: center;
-    margin-bottom: 5px;
-}
-footer button{
-    margin: 5px;
-    height: 35px;
-    border-radius: 10px;
-    background-color:rgb(3, 134, 241);
-    color: white;
+    margin: 2% 0;
     
 }
-footer button:focus{
-    background-color:rgb(2, 91, 163);   
+.submit-btn {
+    width: 20%;
+    height: 50px;
+    margin: 0 2%;
+    font-size: 18px;
+    border-radius: 5px;
+    color: var(--primary-color);
+    background-color:#fff;
+    border: 2px solid Var(--primary-color);
+    cursor: pointer;
 }
-.questions {
-    font-size: 150%;
+
+.questions{
+    color: Var(--primary-color);
+    margin: 5%;
 }
 
 .question-title{
@@ -223,6 +238,7 @@ footer button:focus{
 
 .question button{
     all: unset;
+    font-size: 20px;
 }
 
 .title-buttons{
@@ -231,33 +247,45 @@ footer button:focus{
 .remove-quiz{
     color: red;
 }
-.trash-can:hover{
-    color: red;
-    cursor: pointer;
-}
 .remove-quiz:hover{
     color: rgb(185, 56, 56);
     cursor: pointer;
 }
 
-.answer-edit :hover{
-    color: darkgrey;
+button.trash-can, button.answer-edit {
+    font-size: 20px;
+    color: var(--primary-color);
+}
+.trash-can:hover {
+    color: var(--red-color);
     cursor: pointer;
 }
-.answer-edit :focus{
-    color: darkgrey;
-    background-color: darkgrey;
+.answer-edit:hover{
+    color: var(--blue-color);
+    cursor: pointer;
 }
 .answer-list li{
-    list-style: upper-alpha;  
-    margin-bottom: 10px; 
-    font-size: 18px;
+    list-style: upper-alpha;
 }
 .answer-list div{
     display: flex;
     justify-content: space-between;
 }
-
+.answer-row-cont {
+    display: flex;
+    align-items: center;
+    margin: 2% 0;
+}
+.answer-list{
+    color: var(--blue-color);
+    margin-left:5%;
+}
+.question{
+    margin-bottom: 3%;
+}
+.correct-answer{
+    margin-bottom: 2%;
+}
 h2{
     font-size: 25px;
     padding: 0;

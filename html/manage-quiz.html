@@ -29,22 +29,23 @@
     </div>
         <div class="form-cont hide" >
             <form class="form-container">
-                <legend><span>Insert A new</span> Question:</legend>
+                <h2 class="form-title">Add a question</h2>
                 <div class="row-name">
-                    <p class="question-head">Question:</p>
-                    <textarea name="question" class="question-title question-input" required></textarea>
+                    <lable class="question-name">Question: </lable>
+                    <textarea name="question" class="question-title question-input" placeholder="Type the question text" required></textarea>
                 </div>
                 <div class="answers-row1">
-                            <input type="text" class="A answer first-answer" placeholder="Choice A" required>    
-                            <input type="text" class="B answer second-answer" placeholder="Choice B" required>
-                        </div>
+                            <input type="text" class="A answer first-answer" placeholder="Option A" required>    
+                            <input type="text" class="B answer second-answer" placeholder="Option B" required>
+                </div>
                 <div class="answers-row2">
-                            <input type="text" class="C answer third-answer" placeholder="Choice C" required>
-                            <input type="text" class="D answer fourth-answer" placeholder="Choice D" required>
-                        </div>
+                            <input type="text" class="C answer third-answer" placeholder="Option C">
+                            <input type="text" class="D answer fourth-answer" placeholder="Option D">
+                </div>
                 <div class="row">
-                   <div class="sel"> <p class="right">Select Answer:</p>
-                    <select id="correct-answer" required class="row select">
+                    <div class="sel">
+                        <p class="right">Correct Answer:</p>
+                        <select id="correct-answer" required class="row select">
                         <option value="0" selected>A</option>
                         <option value="1">B</option>
                         <option value="2">C</option>
@@ -55,16 +56,15 @@
                         <button type="submit" class="send">+ Add</button>
                     </div>
                 </div>
-    
             </form>
     </div>
     <div class="container hide">
-        <div class="quiz-title"><h1 id="quiz-name" style="color:rgb(3, 134, 241);"></h1><button class ="remove-quiz" onclick="removeQuiz(this);"><i class="remove-quiz fa fa-trash" aria-hidden="true" data-html2canvas-ignore="true"> Delete Quiz</i></button></div>
+        <div class="quiz-title"><h1 id="quiz-name"></h1><button class ="remove-quiz" onclick="removeQuiz(this);"><i class="remove-quiz fa fa-trash" aria-hidden="true" data-html2canvas-ignore="true"> Delete Quiz</i></button></div>
         <ol class="questions"></ol>
-        <footer class="hide">
-            <button type="submit" id="print-quiz">Print Quizz</button>
-            <button type="submit" id="print-answers">Print Answers</button>
-            <button type="submit" id="save-quiz">Save Quiz</button>
+        <footer>
+            <button class="submit-btn" type="submit" id="print-quiz">Print Quizz</button>
+            <button class="submit-btn" type="submit" id="print-answers">Print Answers</button>
+            <button class="submit-btn" type="submit" id="save-quiz">Save Quiz</button>
         </footer>
     </div>
     <script src="../js/home.js"></script>
