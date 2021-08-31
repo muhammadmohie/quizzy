@@ -285,11 +285,11 @@ const answer = document.querySelector(".answer");
       const unansweredSpan = document.querySelector('.unanswered');
       unansweredSpan.innerText = `${unanswered}`;
 
+      let min = Math.floor(timeTaken / 60);
+      let sec = Math.floor(timeTaken % 60);
       const takenTimeSpan = document.querySelector('.taken-time');
-      takenTimeSpan.innerText = `${timeTaken} s`; 
-
-      // `${min < 10 ? "0" : ""}${min}:${sec < 10 ? "0" : ""}${sec}`;
-
+      takenTimeSpan.innerText = `${min < 10 ? "0" : ""}${min}:${sec < 10 ? "0" : ""}${sec}`; 
+      
       const showResult = document.createElement('div');
       for (let i=0; i < loadedQuiz.questions.length; i++) {
         const question = document.createElement('div');
