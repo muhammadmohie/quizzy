@@ -28,7 +28,7 @@
     display: flex;
     flex-direction: column;
     padding: 3%;
-    border: 2px solid Var(--primary-color);
+    border: 3px solid Var(--primary-color);
     border-radius: 10px;
     background-color: white;
 
@@ -82,17 +82,20 @@
 }
 .quiz-title{
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    margin: 10px 15px;
+    margin: 0 4%;
 }
 .remove-quiz{
     all:unset;
-    font-size: 25px;
-    align-self: right;
+    font-weight: bold;
+    font-size: 24px;
 }
-.remove-quiz  :hover{
-    color: red;
+.remove-quiz-span {
+    font-family: monospace, Helvetica, sans-serif;
+    margin-left: 10px;
+}
+.remove-quiz:hover {
+    color: var(--red-color);
     cursor: pointer;
 }
 
@@ -243,6 +246,8 @@ footer {
 
 .title-buttons{
     display: flex;
+    justify-content: space-between;
+    width: 7%;
 }
 .remove-quiz{
     color: red;
