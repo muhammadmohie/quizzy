@@ -9,27 +9,31 @@
 </head>
 <body>
     <div class="container">
-        <div class="legend"> <h1><span class="create">create </span><span class="quiz">quiz</span></h1></div>
+        <div class="header-title">
+        <h1 class="container-title">Create a quiz</h1>
+        <div class="quiz-title">
+            <lable class="title" for="quiz-name">Quiz title:</lable>
+            <input type="text" id="quiz-name" autofocus class="quiz-name" placeholder="Type the quiz title" required>
+        </div>
+        </div>
         <form class="form-container">
-            <div class="quiz-name">
-                <p class="title">Quiz Name:</p>
-                <input type="text" id="quiz-name" autofocus class="quiz-name" placeholder="type the quiz name" required>
-            </div>    
+            <h2 class="form-title">Add a question</h2>
             <div class="row-name">
-                <p class="question-head">Question:</p>
-                <textarea name="question" class="question-title question-input" required></textarea>
+                <lable class="question-name">Question: </lable>
+                <textarea name="question" class="question-title question-input" placeholder="Type the question text" required></textarea>
             </div>
             <div class="answers-row1">
-                        <input type="text" class="A answer first-answer" placeholder="Choice A" required>    
-                        <input type="text" class="B answer second-answer" placeholder="Choice B" required>
-                    </div>
+                        <input type="text" class="A answer first-answer" placeholder="Option A" required>    
+                        <input type="text" class="B answer second-answer" placeholder="Option B" required>
+            </div>
             <div class="answers-row2">
-                        <input type="text" class="C answer third-answer" placeholder="Choice C" required>
-                        <input type="text" class="D answer fourth-answer" placeholder="Choice D" required>
-                    </div>
+                        <input type="text" class="C answer third-answer" placeholder="Option C">
+                        <input type="text" class="D answer fourth-answer" placeholder="Option D">
+            </div>
             <div class="row">
-               <div class="sel"> <p class="right">Select Answer:</p>
-                <select id="correct-answer" required class="row select">
+                <div class="sel">
+                    <p class="right">Correct Answer:</p>
+                    <select id="correct-answer" required class="row select">
                     <option value="0" selected>A</option>
                     <option value="1">B</option>
                     <option value="2">C</option>
@@ -40,16 +44,15 @@
                     <button type="submit" class="send">+ Add</button>
                 </div>
             </div>
-
         </form>
     
     <div class="questions-container hide">
-        <h1 class="title-q"><span>Quest</span>ions </h1>
+        <h2 class="title-q">Questions</h2>
         <ol class="questions"></ol>
         <footer>
-            <button type="submit" id="print-quiz">Print Quizz</button>
-            <button type="submit" id="print-answers">Print Answers</button>
-            <button type="submit" id="save-quiz">Save Quiz</button>
+            <button class="submit-btn" type="submit" id="print-quiz">Print Quizz</button>
+            <button class="submit-btn" type="submit" id="print-answers">Print Answers</button>
+            <button class="submit-btn" type="submit" id="save-quiz">Save Quiz</button>
         </footer>
     </div>
 
