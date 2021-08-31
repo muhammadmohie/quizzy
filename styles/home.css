@@ -22,6 +22,9 @@
     overflow: hidden;
     display: flex;
     justify-content: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
 }
   
 .topnav a {
@@ -77,5 +80,8 @@
       display: block;
       text-align: left;
     }
-  }
+    .greeting{
+        margin-top: 20%;
+    }
+}
   
