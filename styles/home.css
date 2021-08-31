@@ -20,26 +20,23 @@
 .topnav {
     background-color: var(--primary-color);
     overflow: hidden;
+    display: flex;
+    justify-content: center;
 }
   
 .topnav a {
-    float: left;
+    /* float: left; */
     display: block;
     color: #f2f2f2;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 22px;
 }
-  
+
 .topnav a:hover {
-    background-color: rgb(13, 0, 14);
+    background-color: #5c219b;
     color: rgba(255, 253, 255, 0.918);
-}
-  
-.topnav a.active {
-    background-color: var(--primary-color);
-    color: white;
 }
   
 .topnav .icon {
@@ -57,9 +54,12 @@
     margin-left: 12%;  
 }
 @media screen and (max-width: 600px) {
-    .topnav a:not(:first-child) {display: none;}
+    .topnav a{display: none;}
     .topnav a.icon {
         float: right;
+        display: block;
+    }
+    .topnav{
         display: block;
     }
   }
