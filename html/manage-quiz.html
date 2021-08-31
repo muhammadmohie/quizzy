@@ -10,66 +10,57 @@
 </head>
 
 <body>
+    <div class="Eldest-container">
     <div class="container">
         <div class="main-container" autofocus>
             <h1 class="main-container-title">Which quiz do you want to Manage?</h1>
             <div class="premade-quizzes"></div>
         </div>
     </div>
-    <div>
-        <div style="display: flex; justify-content: center;">
-         <form class="form-container hide">
-
-            <div class="row-name">
-                <p class="question-head">Question:</p>
-            </div>
-            <div class="question-cont">
-                <textarea name="question" class="question-title question-input"></textarea>
-            </div>
-            <div class="row-name">
-                <p class="answers">Choices:</p>
-            </div>
-            <div class="answer-A row">
-                <div class="prefix-A prefix">A</div>
-                <input type="text" class="A answer first-answer" placeholder="Choice A" required>
-            </div>
-            <div class="answer-B row">
-                <div class="prefix-B prefix">B</div>
-                <input type="text" class="B answer second-answer" placeholder="Choice B" required>
-            </div>
-            <div class="answer-C row">
-                <div class="prefix-C prefix">C</div>
-                <input type="text" class="C answer third-answer" placeholder="Choice C" required>
-            </div>
-            <div class="answer-D row">
-                <div class="prefix-D prefix">D</div>
-                <input type="text" class="D answer fourth-answer" placeholder="Choice D" required>
-            </div>
-            <div class="right-answer">
-                <p class="right">choose right answer: </p>
-                <select id="correct-answer" required class="row select">
-                    <option value="0" selected>A</option>
-                    <option value="1">B</option>
-                    <option value="2">C</option>
-                    <option value="3">D</option>
-                </select>
-            </div>
-            <div class="add">
-                <button type="submit" class="send">+ Add</button>
-            </div>
-        </form> 
+        <div class="form-cont hide" >
+            <form class="form-container">
+                <legend><span>Insert A new</span> Question:</legend>
+                <div class="row-name">
+                    <p class="question-head">Question:</p>
+                    <textarea name="question" class="question-title question-input" required></textarea>
+                </div>
+                <div class="answers-row1">
+                            <input type="text" class="A answer first-answer" placeholder="Choice A" required>    
+                            <input type="text" class="B answer second-answer" placeholder="Choice B" required>
+                        </div>
+                <div class="answers-row2">
+                            <input type="text" class="C answer third-answer" placeholder="Choice C" required>
+                            <input type="text" class="D answer fourth-answer" placeholder="Choice D" required>
+                        </div>
+                <div class="row">
+                   <div class="sel"> <p class="right">Select Answer:</p>
+                    <select id="correct-answer" required class="row select">
+                        <option value="0" selected>A</option>
+                        <option value="1">B</option>
+                        <option value="2">C</option>
+                        <option value="3">D</option>
+                    </select>
+                </div>
+                    <div class="add">
+                        <button type="submit" class="send">+ Add</button>
+                    </div>
+                </div>
+    
+            </form>
     </div>
     <div class="container hide">
-        <div class="quiz-title"><h1 id="quiz-name"></h1><button class ="remove-quiz" onclick="removeQuiz(this);"><i class="remove-quiz fa fa-trash" aria-hidden="true" data-html2canvas-ignore="true"> Delete Quiz</i></button></div>
+        <div class="quiz-title"><h1 id="quiz-name" style="color:rgb(3, 134, 241);"></h1><button class ="remove-quiz" onclick="removeQuiz(this);"><i class="remove-quiz fa fa-trash" aria-hidden="true" data-html2canvas-ignore="true"> Delete Quiz</i></button></div>
         <ol class="questions"></ol>
+        <footer class="hide">
+            <button type="submit" id="print-quiz">Print Quizz</button>
+            <button type="submit" id="print-answers">Print Answers</button>
+            <button type="submit" id="save-quiz">Save Quiz</button>
+        </footer>
     </div>
     
-    <footer class="hide">
-        <button type="submit" id="print-quiz">Print Quizz</button>
-        <button type="submit" id="print-answers">Print Answers</button>
-        <button type="submit" id="save-quiz">Save Quiz</button>
-    </footer>
+
 </div>
+
     <script src="../js/manage-quiz.js"></script>
     <script src="../js/editAndRemoveQuestion.js"></script>
     <script src="../js/createQuestions.js"></script>

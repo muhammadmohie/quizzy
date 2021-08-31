@@ -15,6 +15,7 @@
     margin: 5% auto;
     border: 1px solid;
     border-radius: 10px;
+
 }
 .question-head{
     font-size: 30px;
@@ -68,6 +69,7 @@
     padding: 2%;
     width: 90%;
     margin: 5%;
+
 }
 .form-container input{
     font-size:20px ;
@@ -125,26 +127,26 @@
     padding: 10px 10px;
     border-radius: 5px;
     font-size: 20px;
+    background-color:rgb(3, 134, 241);
     color: white;
-    background-color: rgb(25, 160, 201);
     width: 70px;
-    height: 55%;
+    height: 45%;
     margin-top: 30px;
 }
 
 .send{
     width: 120px;
     font-size: 30px;
-    margin-top: 25px;
+    margin-top: 30px;
     border: none;
-    background-color: white;
-    height: 55%;
+    background-color:rgb(3, 134, 241);
+    color: white;
+    border-radius: 10px;
+    height: 50%;
 
 }
 .send:focus{
-    border: 1px solid;
-    border-radius:10px;
-    background-color: gainsboro;
+    background-color: rgb(2, 91, 163);
 }
 
 footer, .questions-container {
@@ -160,7 +162,17 @@ footer {
     justify-content: center;
     margin-bottom: 5px;
 }
-
+footer button{
+    margin: 5px;
+    height: 35px;
+    border-radius: 10px;
+    background-color:rgb(3, 134, 241);
+    color: white;
+    
+}
+footer button:focus{
+    background-color:rgb(2, 91, 163);   
+}
 .title-q{
     text-align: center;
     color: rgb(2, 91, 163);

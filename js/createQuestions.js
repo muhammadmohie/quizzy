@@ -11,7 +11,7 @@ function createQuestion(title, answers, correctAnswer) {
     }
     html += '</ol>'
     html += `<div class="correct-answer-div" data-html2canvas-ignore="true">
-        correct answer: <span class="correct-answer">${String.fromCharCode(65 + correctAnswer)}</span>
+        correct answer: <span class="correct-answer">${String(correctAnswer)}</span>
         </div>`
     html += '</div>'
     html += '</li></div>'
