@@ -144,6 +144,7 @@
     height: 40px;
     text-align: center;
     padding: 0 5px;
+    cursor: pointer;
 }
 .send {
     width: 150px;
@@ -153,6 +154,7 @@
     background-color: #fff;
     border: 2px solid Var(--primary-color);
     border-radius: 5px;
+    cursor: pointer;
 }
 .select:hover, .send:hover, .submit-btn:hover {
     color: #fff;
