@@ -219,7 +219,12 @@ footer {
 .title-buttons {
     display: flex;
     justify-content: space-between;
-    width: 7%;
+}
+button.answer-edit {
+    margin-left: 40px;
+}
+button.trash-can {
+    margin-left: 20px;
 }
 button.trash-can, button.answer-edit {
     font-size: 20px;
