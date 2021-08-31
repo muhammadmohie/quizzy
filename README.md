@@ -7,3 +7,11 @@
 1. Creating a new quiz.
 1. Printing the created quizzes.
 1. Editing and manage existing quizzes.
+
+To use the app
+
+- Start the api
+    - cd api
+    - npm install
+    - npm start
+- Open any HTML page
