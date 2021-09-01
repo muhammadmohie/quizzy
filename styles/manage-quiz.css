@@ -302,3 +302,24 @@ h2{
 .hide{
     display: none;
 }
+
+@media (max-width: 415px){
+.container{
+    margin: 13% 0 5% 5%;
+
+}
+.main-container-title{
+    font-size: 17px;
+}
+.premade-quizzes{
+    padding: 0 0 75px;
+    display: block;
+}
+.quizzes{
+    font-size: 30px;
+    width: 80%;
+    margin: 30px auto; 
+    display: block;
+    padding: 19px 30px;
+    }
+}
