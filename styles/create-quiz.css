@@ -184,6 +184,7 @@ footer {
     display: flex;
     justify-content: center;
     margin: 2% 0;
+    width:100%;
 }
 .submit-btn {
     width: 20%;
@@ -252,4 +253,113 @@ button.trash-can, button.answer-edit {
 }
 .hide {
     display: none;
+}
+
+@media(max-width:1024px){
+    .container{
+        margin: 10% auto;
+    }
+}
+@media(max-width:768px){
+    .container{
+        margin: 10% auto;
+    }
+}
+@media(max-width:415px){
+    .container{
+        margin: 18% auto;
+    }
+    .topnav.responsive{
+        margin-bottom: -13%;
+    }
+    .container-title{
+        font-size: 30px;
+        margin-bottom: 7%;
+    }
+    .quiz-title{
+        display: block;
+        margin-bottom: 7%;
+        width: 100%;
+        font-size: 28px;
+    }
+    .quiz-name{
+        margin-left: 0;
+        width: 100%;
+    }
+    .header-title{
+        display: block;
+    }
+    .question-name{
+        margin-bottom: 10px;
+        display: block;
+        margin-left: 10px;
+    }
+    .row-name{
+        display: block;
+        margin-bottom: 7%;
+    }
+    .row-name textarea{
+        margin-left: 2%;
+    }
+    .answers-row1 {
+        display: block;
+        margin-bottom: 20%;
+    }
+    .answers-row1 input,  .answers-row2 input{
+        width: 91%;
+        margin-bottom: 7%;
+    }
+    .answers-row2{
+        display: block;
+        margin-bottom: 30%;
+    }
+    .row{
+        display: block;
+
+
+    }
+    .sel{
+        margin-bottom: 7%;
+    }
+
+    .title-q{
+        margin-bottom: 7%;
+    }
+    .questions div li{
+        margin-left: 5%;
+    }
+    .question{
+        margin-bottom: 10%;
+    }
+    .question-title{
+        margin-bottom: 7%;
+        margin-left: -3%;
+        font-size: 23px;
+    }
+    .question-title h2{
+        font-size: 23px;
+    }
+    .answer-edit{
+        margin-left: -5px;
+        margin-right: 6px;
+    }
+    .answer-list{
+        margin-bottom: 7%;
+        margin-left: 10%;
+    }
+    .answer-row-cont{
+        margin-bottom: 7%;
+    }
+    .correct-answer-div{
+        margin-left: -3%;
+    }
+    footer{
+        display: block;
+    }
+    footer .submit-btn{
+        display: block;
+        width: 90%;
+        margin: 7% auto;
+    }
+
 }
