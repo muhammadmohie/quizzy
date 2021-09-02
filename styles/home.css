@@ -7,6 +7,7 @@
     --secondary-color: #ff6d00;
     --tertiary-color: #18ccae;
     --blue-color: #3877ff;
+    --lightblue-color: hsl(221, 100%, 65%);
     --red-color: #d00000;
     font-family: monospace, Helvetica, sans-serif;
 }
@@ -16,6 +17,7 @@ body{
 .container {
         width: 90%;
         margin: 8% auto 5%;
+        padding: 3%;
         border: 3px solid var(--primary-color);
         border-radius: 10px;
         display: flex;
@@ -28,16 +30,15 @@ body{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin-bottom: 6%;
 }
 .nav-link{
     font-size: 20px;
-    width: 21%;
+    font-weight: bold;
+    width: 22%;
     margin: 2% 5%;
-    color: var(--primary-color);
-    background-color: #ffffff;
+    color: #fff;
+    background-color: var(--blue-color);
     cursor: pointer;
-    border: 2px solid var(--primary-color);
     border-radius: 5px;
     padding: 30px 30px;
 }
@@ -83,20 +84,19 @@ body{
 }
 .discription , .list{
     width: 80%;
-    margin: 5% 10% 2%;
+    margin: 5% 5% 0 5%;
     font-size: 25px;
     color: var(--secondary-color);
     line-height: 1.5em;
 }
 .nav-link:hover{
     color: white;
-    background-color: var(--primary-color);
-    box-shadow: 1px 1px 10px rgba(78, 20, 140, 0.7);
+    background-color: var(--lightblue-color);
+    box-shadow: 1px 1px 10px #888888;
 } 
 .list{
-    color: var(--blue-color);
-    margin-left: 12%;  
-    margin-bottom: 5%;
+    color: var(--primary-color);
+    margin: 5%;
 }
 
 
