@@ -9,7 +9,7 @@ async function displayQuizzes()  {
     // Add eventListener
     document.querySelectorAll('.quizzes').forEach(btn => btn.addEventListener('click', async () => {
         let quizName = btn.innerText
-        document.querySelector('#quiz-name').innerText = "Quiz:" + quizName;
+        document.querySelector('#quiz-name').innerText = quizName;
         let quiz = await fetch(`http://127.0.0.1:3000/quizzes/${quizName}`).then(res => res.json())
         questions = quiz.questions
         document.querySelectorAll('.hide').forEach(div => div.style.display = "flex")
