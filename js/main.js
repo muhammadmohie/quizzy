@@ -3,7 +3,7 @@ const confirmation = document.querySelector(".confirmation");
 const quizContainer = document.querySelector(".quiz-container");
 const resultContainer = document.querySelector(".result-container");
 const time = document.querySelector(".time");
-let timeCounter = 1000;
+let timeCounter = 31;
 let elapsedTime=0;
 let requiredQuiz;
 let loadedQuiz;
