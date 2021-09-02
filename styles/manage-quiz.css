@@ -12,33 +12,31 @@
     --blue-color: #3877ff;
     --red-color: #e8353e;
 }
-.Eldest-container{
-    margin: 0;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-radius: 10px;
-    background-color: var(--tertiary-color);
-    
-}
-.container {
+.original-container {
     width: 90%;
     font-size: 20px;
     margin: 8% 0 5% 5%;
     word-break: break-word;
     display: flex;
     flex-direction: column;
-    padding: 3%;
+    padding: 5%;
     border: 3px solid Var(--primary-color);
     border-radius: 10px;
     background-color: white;
 
 }
 .container.hide{
-    margin-top: 5%;
+    width: 100%;
+    padding: 5% 5% 5% 8%;
+    margin: 0;
 }
 .main-container{
-    margin: 3%;
+    width: 100%;
+    padding: 5%;
+    margin-bottom: 5%;
     background-color: white;
+    border: 3px solid Var(--primary-color);
+    border-radius: 10px;
 }
 .main-container-title {
     color: var(--primary-color);
@@ -53,15 +51,16 @@
     font-weight: normal;
 }
 .premade-quizzes {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     margin-bottom: 6%;
 }
 .quizzes {
     font-size: 20px;
-    width: 20%;
-    margin: 2% 5%;
+    width: 25%;
+    margin: 4% 4%;
     color: var(--primary-color);
     background-color: #ffffff;
     cursor: pointer;
@@ -80,15 +79,16 @@
     background-color: var(--primary-color);
     box-shadow: 1px 1px 10px #808080;
 }
-.quiz-title{
+div.quiz-title{
+    width: 100%;
+    margin: 0;
     display: flex;
     justify-content: space-between;
-    margin: 0 4%;
 }
 .remove-quiz{
     all:unset;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 28px;
 }
 .remove-quiz-span {
     font-family: monospace, Helvetica, sans-serif;
@@ -107,7 +107,7 @@
     font-size: 20px;
     padding: 3%;
     width: 90%;
-    margin: 0 5%;
+    margin: 5% 5%;
     background-color: white;
 }
 .form-title, .title-q {
@@ -208,9 +208,11 @@
 }
 
 #quiz-name{
+    font-size: 36px;
     color: var(--secondary-color);
 }
 footer {
+    width: 100%;
     display: flex;
     justify-content: center;
     margin: 2% 0;
@@ -229,8 +231,8 @@ footer {
 }
 
 .questions{
+    width: 100%;
     color: Var(--primary-color);
-    margin: 5%;
 }
 
 .question-title{

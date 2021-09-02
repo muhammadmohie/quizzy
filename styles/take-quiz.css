@@ -41,14 +41,14 @@ body{
 .premade-quizzes {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     margin-bottom: 6%;
 }
 
 .quizzes, .confirm-btn, .browsing-btns {
     font-size: 20px;
-    width: 20%;
-    margin: 2% 5%;
+    width: 25%;
+    margin: 4% 4%;
     color: var(--primary-color);
     background-color: #ffffff;
     cursor: pointer;
@@ -169,8 +169,8 @@ body{
     line-height: 2em;
 }
 .grade-report-item {
-    width: 30%;
-    margin: 0 10%;
+    width: 32%;
+    margin: 0 6%;
     color: var(--primary-color);
 }
 .report-items {
