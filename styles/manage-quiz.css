@@ -16,7 +16,6 @@
     width: 90%;
     font-size: 20px;
     margin: 8% 0 5% 5%;
-    word-break: break-word;
     display: flex;
     flex-direction: column;
     padding: 5%;
@@ -106,8 +105,8 @@ div.quiz-title{
     flex-direction: column;
     font-size: 20px;
     padding: 3%;
-    width: 90%;
-    margin: 5% 5%;
+    width: 100%;
+    margin: 0 0 5% 0;
     background-color: white;
 }
 .form-title, .title-q {
@@ -201,6 +200,7 @@ div.quiz-title{
 .select:hover, .send:hover, .submit-btn:hover {
     color: #fff;
     background-color: var(--primary-color);
+    box-shadow: 1px 1px 10px rgba(78, 20, 140, 0.7);
 }
 .row {
     display: flex;
