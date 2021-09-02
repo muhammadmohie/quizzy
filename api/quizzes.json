@@ -31,6 +31,26 @@
                     "h6"
                 ],
                 "correct-answer": 1
+            },
+            {
+                "title": "Who is making the web standards?",
+                "answers": [
+                    "The World Wide Web Consortium",
+                    "Mozilla",
+                    "Google",
+                    "Microsoft"
+                ],
+                "correct-answer": 0
+            },
+            {
+                "title": "What is the correct HTML element for inserting a line break?",
+                "answers": [
+                    "lb",
+                    "br",
+                    "break",
+                    "newline"
+                ],
+                "correct-answer": 1
             }
         ]
     },
@@ -66,6 +86,26 @@
                     "script tag"
                 ],
                 "correct-answer": 2
+            },
+            {
+                "title": "Which HTML tag is used to define an internal style sheet?",
+                "answers": [
+                    "script",
+                    "css",
+                    "style",
+                    "stylesheet"
+                ],
+                "correct-answer": 2
+            },
+            {
+                "title": "Which HTML attribute is used to define inline styles?",
+                "answers": [
+                    "class",
+                    "style",
+                    "styles",
+                    "font"
+                ],
+                "correct-answer": 1
             }
         ]
     },
@@ -101,8 +141,27 @@
                     "none"
                 ],
                 "correct-answer": 2
+            },
+            {
+                "title": "How do you call a function named \"myFunction\"?",
+                "answers": [
+                    "myFunction()",
+                    "call myFunction",
+                    "call myFunction()",
+                    "call function myFunction"
+                ],
+                "correct-answer": 0
+            },
+            {
+                "title": "How to write an IF statement in JavaScript?",
+                "answers": [
+                    "if i = 5",
+                    "if i = 5 then",
+                    "if (i == 5)",
+                    "if i == 5 then"
+                ],
+                "correct-answer": 2
             }
         ]
     }
 ]
-
