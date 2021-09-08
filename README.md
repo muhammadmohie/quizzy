@@ -1,17 +1,11 @@
 # quizzy
-### Online quiz-making website.
-##### Quizzy is an online quiz making website created by: Mohamed Mohie, Adham Salama, Mohamed Abd Elnasser, Ahmed Younes, Mohamed Adel, to introduce an online educational service which mainly includes an examination system supports the following features.
+Welcome to [quizzy](https://muhammadmohie.github.io/quizzy/index.html) application!  
 
-1. Taking a premade quizzes.
-1. Displaying the quiz result.
-1. Creating a new quiz.
-1. Printing the created quizzes.
-1. Editing and manage existing quizzes.
 
-To use the app
+Quizzy is an online quiz making website created by: Mohamed Mohie, Adham Salama, Mohamed Abd Elnasser, Ahmed Younes, Mohamed Adel, to introduce an online educational service which mainly includes an examination system supports the following features.
 
-- Start the api
-    - cd api
-    - npm install
-    - npm start
-- Open any HTML page
+1. Taking premade quizzes.
+2. Displaying the quiz result.
+3. Creating new quizzes.
+4. Printing the created quizzes.
+5. Editing and manage existing quizzes.
