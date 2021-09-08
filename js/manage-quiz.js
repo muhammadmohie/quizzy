@@ -10,7 +10,7 @@ async function displayQuizzes()  {
     document.querySelectorAll('.quizzes').forEach(btn => btn.addEventListener('click', async () => {
         let quizName = btn.innerText
         document.querySelector('#quiz-name').innerText = quizName;
-        let quiz = await fetch(`http://127.0.0.1:3000/quizzes/${quizName}`).then(res => res.json())
+        let quiz = await fetch(`https://project-quizzy.herokuapp.com/quizzes/${quizName}`).then(res => res.json())
         questions = quiz.questions
         document.querySelectorAll('.hide').forEach(div => div.style.display = "flex")
         let quizQuestions = document.querySelector('.questions')
@@ -21,7 +21,7 @@ async function displayQuizzes()  {
         // Add button click events
         
         document.querySelector('#save-quiz').onclick = () => {
-            postData('http://127.0.0.1:3000/quizzes', {
+            postData('https://project-quizzy.herokuapp.com/quizzes', {
                 name: quizName,
                 questions: questions
             })
@@ -53,13 +53,13 @@ document.querySelector('#print-answers').onclick = () => {
 }
 
 async function getQuizzes() {
-    return fetch('http://127.0.0.1:3000/quizzes').then(res => res.json())
+    return fetch('https://project-quizzy.herokuapp.com/quizzes').then(res => res.json())
 }
 
 let deleteBtn = document.querySelector('.remove-quiz')
     deleteBtn.addEventListener('click', async (e) => {
         removeQuiz(deleteBtn)
-        await fetch(`http://127.0.0.1:3000/quizzes/${document.querySelector('#quiz-name').innerText}`, {method: "DELETE"})
+        await fetch(`https://project-quizzy.herokuapp.com/quizzes/${document.querySelector('#quiz-name').innerText}`, {method: "DELETE"})
         .then(res => console.log(res))
         await displayQuizzes()
         console.log('realoded')

@@ -19,7 +19,7 @@ let quizzes;
 const answer = document.querySelector(".answer");
 (async function fetchQuizzes() {
   try {
-    const url = 'http://127.0.0.1:3000/quizzes';
+    const url = 'https://project-quizzy.herokuapp.com/quizzes';
     let response = await fetch(url);
     quizzes = await response.json();
 
@@ -48,7 +48,7 @@ const answer = document.querySelector(".answer");
       }
     });
     async function loadRequiredQuiz() {
-      const urlq = `http://127.0.0.1:3000/quizzes/${requiredQuiz}`;
+      const urlq = `https://project-quizzy.herokuapp.com/quizzes/${requiredQuiz}`;
       let response = await fetch(urlq);
       loadedQuiz = await response.json();
       // push the correct answers of the loaded quiz in cor array

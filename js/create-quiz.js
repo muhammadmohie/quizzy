@@ -46,7 +46,7 @@ document.querySelector('#print-answers').onclick = () => {
 
 document.querySelector('#save-quiz').onclick = () => {
     let quizzName = document.querySelector('#quiz-name').value
-    postData('http://127.0.0.1:3000/quizzes', {
+    postData('https://project-quizzy.herokuapp.com/quizzes', {
         name: quizzName,
         questions: questions
     })
